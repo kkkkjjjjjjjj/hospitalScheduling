@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<span>请输入账号：<input type="text" id="id"><span id="test"></span></span>
+
+<script>
+    $(function () {
+        $("#id").keyup(function () {
+            var value=$(this).val();
+            $.ajax({
+                url:"/bannerInfo/b",
+                data:{"name":value},
+                success:function (result) {
+                    $("#test").html(result);
+                }
+            })
+        })
+    })
+
+</script>
+
+</body>
+</html>
