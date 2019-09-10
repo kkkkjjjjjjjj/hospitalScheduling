@@ -20,8 +20,8 @@ public class HrtodaybaseinfoServiceImpl  implements HrtodaybaseinfoService {
     }
 
     @Override
-    public Hrtodaybaseinfo findById(String id) {
-        return hbm.findById(id);
+    public Hrtodaybaseinfo findById(String gonghao) {
+        return hbm.findById(gonghao);
     }
 
     @Override

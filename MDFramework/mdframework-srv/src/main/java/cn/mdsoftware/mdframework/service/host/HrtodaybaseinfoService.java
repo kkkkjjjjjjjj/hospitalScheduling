@@ -8,7 +8,7 @@ public interface HrtodaybaseinfoService {
 
     List<Hrtodaybaseinfo> findAll();
 
-    Hrtodaybaseinfo findById(String id);
+    Hrtodaybaseinfo findById(String gonghao);
 
     int up(Hrtodaybaseinfo hb);
 }

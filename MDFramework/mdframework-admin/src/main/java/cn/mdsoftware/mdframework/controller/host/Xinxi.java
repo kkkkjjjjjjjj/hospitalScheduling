@@ -1,44 +1,54 @@
 package cn.mdsoftware.mdframework.controller.host;
 
 import cn.mdsoftware.mdframework.bean.entity.host.Hrtodaybaseinfo;
-import cn.mdsoftware.mdframework.bean.entity.host.Hrtodayinfo;
+import cn.mdsoftware.mdframework.controller.BaseController;
 import cn.mdsoftware.mdframework.service.host.HrtodaybaseinfoService;
-import cn.mdsoftware.mdframework.service.host.HrtodayinfoService;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
 @RequestMapping("/host/hushi")
 @Controller
-public class Xinxi {
-
+public class Xinxi  extends BaseController {
+    String prefix = "host/hushi";
+    //@Autowired
+    //HrtodayinfoService hti;
     @Autowired
-    private HrtodayinfoService hti;
-    @Autowired
-    private HrtodaybaseinfoService hdb;
-    @RequiresPermissions("host:hushi:xinxi")
-    @GetMapping("")
-    String xinxi(Model model){
-        return "host/hushi/xinxi";
+    HrtodaybaseinfoService hdb;
+    @RequestMapping("xinxi")
+    public String all(Model m){
+        List<Hrtodaybaseinfo>sc=hdb.findAll();
+        m.addAttribute("sc",sc);
+        return "xinxi";
     }
 
-    @RequiresPermissions("sys:menu:menu")
-    @RequestMapping("/list")
-    @ResponseBody
-   public String all(Model m){
-        List<Hrtodayinfo> hrt = hti.findAll();
-        List<Hrtodaybaseinfo> htb = hdb.findAll();
-        m.addAttribute("hrt",hrt);
-        m.addAttribute("htb",htb);
-        return "menus";
+    /**
+     * 跳转
+     */
+    @RequestMapping("/tiao")
+    public String tiao(){
+        return "edit";
     }
-
+    /**
+     * 修改
+     */
+    @RequestMapping("/up")
+    public String up(Hrtodaybaseinfo school){
+        hdb.up(school);
+        return "redirect:xinxi";
+    }
+    /**
+     * 根据ID查询
+     */
+    @RequestMapping("/ed")
+    public String find(String id,Model m){
+        Hrtodaybaseinfo sh=hdb.findById(id);
+        m.addAttribute("sh",sh);
+        return "edit";
+    }
 
 
 

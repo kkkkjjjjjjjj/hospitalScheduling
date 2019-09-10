@@ -13,8 +13,8 @@ public interface HrtodaybaseinfoMapper {
     @Select("select * from hr_today_baseinfo")
     List<Hrtodaybaseinfo>findAll();
 
-    @Select("select * from Hrtodaybaseinfo where id=#{id}")
-    Hrtodaybaseinfo findById(String id);
+    @Select("select * from Hrtodaybaseinfo where gonghao=#{gonghao}")
+    Hrtodaybaseinfo findById(String gonghao);
 
     @Update("update Hrtodaybaseinfo set gonghao=#{gonghao},name=#{name},sex=#{sex}," +
             "height=#{height},natton=#{natton},class=#{Classa},birthday=#{birthday}," +
