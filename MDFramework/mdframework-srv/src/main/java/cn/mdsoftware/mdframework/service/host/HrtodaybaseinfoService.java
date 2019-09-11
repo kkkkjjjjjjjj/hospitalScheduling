@@ -11,4 +11,6 @@ public interface HrtodaybaseinfoService {
     Hrtodaybaseinfo findById(String gonghao);
 
     int up(Hrtodaybaseinfo hb);
+
+    int add(Hrtodaybaseinfo htb);
 }

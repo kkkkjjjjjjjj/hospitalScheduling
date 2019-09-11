@@ -1,8 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
     <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script type="text/javascript" src="http://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
 </head>
 <style>
     body{
@@ -43,33 +49,33 @@
             <button>姓名</button>
         </td>
         <td>
-            <button>09-02</button>
+            <button><label class="message1">&nbsp;</label></button>
         </td>
         <td>
-            <button>09-02</button>
+            <button><label class="message1">&nbsp;</label></button>
         </td>
         <td>
-            <button>09-02</button>
+            <button><label class="message1">&nbsp;</label></button>
         </td>
         <td>
-            <button>09-02</button>
+            <button><label class="message1">&nbsp;</label></button>
         </td>
         <td>
-            <button>09-02</button>
+            <button><label class="message1">&nbsp;</label></button>
         </td>
         <td>
-            <button>09-02</button>
+            <button><label class="message1">&nbsp;</label></button>
         </td>
         <td>
-            <button>09-02</button>
+            <button><label class="message1">&nbsp;</label></button>
         </td>
         <td>
             <button>备注</button>
         </td>
     </tr>
-    <tr>
-        <td>N2</td>
-        <td>曲佳</td>
+    <tr th:each="sh:${sh}">
+        <td><span  th:text="${sh.name}"></span></td>
+        <td><span  th:text="${sc.name}"></span></td>
         <td>
             <select>
                 <option value="休">休</option>
@@ -341,5 +347,35 @@
         </table>
     </div>
 </div>
+
+<script>
+    $(function(){
+                    var url="/aaa";
+                    var args={"time":new Date()};
+                    $.getJSON(url,args,function(data)
+                        {
+                            alert(data.month,data.day,data.week);
+                            var f=0;
+                            var b=0;
+                            for (var i=0,ilt;7;i++){
+
+                                var m=data.week+i;
+                                var s=m+f;
+                                if (s&lt;=7){
+                                    $(".message").eq(i).html(data.month,data.day+i,s);
+                                }
+                                if (s&gt;7){
+                                    s=s-7;
+                                    $(".message").eq(i).html(data.month,data.day+i,s);
+                                }
+
+                            }
+                        }
+                    );
+                    return false;
+                }
+    )
+
+</script>
 </body>
 </html>

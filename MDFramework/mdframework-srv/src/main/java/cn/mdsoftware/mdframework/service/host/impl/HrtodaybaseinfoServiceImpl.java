@@ -28,4 +28,11 @@ public class HrtodaybaseinfoServiceImpl  implements HrtodaybaseinfoService {
     public int up(Hrtodaybaseinfo hb) {
         return hbm.up(hb);
     }
+
+    @Override
+    public int add(Hrtodaybaseinfo htb) {
+        return hbm.add(htb);
+    }
+
+
 }
