@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script type="text/javascript" src="http://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .da{
+            font-size: 24px;
+            height: 40px;
+            width: 150px;
+            overflow:hidden;
+            text-overflow:ellipsis;
+        }
+        tr td{
+            border: 1px deepskyblue solid
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-primary">
+                <div class="panel-heading">全院字典</div>
+                <div class="panel-body">
+                    <table>
+                        <tr>
+                            <td><div class="da">序号</div></td>
+                            <td><div class="da">简称</div></td>
+                            <td><div class="da">详细描述</div></td>
+                            <td><div class="da">时长（小时）</div></td>
+                            <td><div class="da">开始时间</div></td>
+                            <td><div class="da">结束时间</div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="da">1</div></td>
+                            <td><div class="da">白</div></td>
+                            <td><div class="da">白班</div></td>
+                            <td><div class="da">8</div></td>
+                            <td><div class="da"></div></td>
+                            <td><div class="da"></div></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">病区字典</div>
+                <div class="panel-body">
+                    <table>
+                        <tr>
+                            <td><div class="da">序号</div></td>
+                            <td><div class="da">简称</div></td>
+                            <td><div class="da">详细描述</div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="da">1</div></td>
+                            <td><div class="da">白</div></td>
+                            <td><div class="da">白班</div></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="col-md-8">
+            <div class="panel panel-primary">
+                <div class="panel-heading">护理部操作</div>
+                <div class="panel-body" style="text-align: center">
+                    <button style="font-size: 24px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">添加</button>
+                    <button style="font-size: 24px" type="button"class="btn btn-primary btn-lg" >删除</button>
+                    <button style="font-size: 24px" type="button"class="btn btn-primary btn-lg" >保存</button>
+                    <button style="font-size: 24px" type="button"class="btn btn-primary btn-lg" >排班参数设置</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">病区操作 如果本病区需要的班次不在全院字典范围内，请联系护理部添加，不要自行修改</div>
+                <div class="panel-body">
+                    <lable style="font-size: 24px">病区</lable>
+                    <select name="" id="" style="font-size: 24px;">
+                        <option value="感染疾病病区" style="font-size: 24px">感染疾病病区</option>
+                        <option value="感染疾病病区" style="font-size: 24px">感染疾病病区</option>
+                    </select>
+                    <button style="font-size: 24px" type="button"class="btn btn-primary btn-lg">刷新</button>
+                    <button style="font-size: 24px" type="button"class="btn btn-primary btn-lg">删除</button>
+                    <button style="font-size: 24px" type="button"class="btn btn-primary btn-lg">保存</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog row" role="document">
+        <div class="modal-content" style="font-size: 24px;">
+            <tr>
+                <td>序号： </td>
+                <td><input type="text" value="xuhao"></td>
+            </tr>
+            <br/>
+            <tr>
+                <td>简称： </td>
+                <td><input type="text" value="jiancheng"></td>
+            </tr>
+            <br/>
+            <tr>
+                <td>详细描述： </td>
+                <td><input type="text" value="miaoshu"></td>
+            </tr>
+            <br/>
+            <tr>
+                <td>时长： </td>
+                <td><input type="text" value="time"></td>
+            </tr>
+            <br/>
+            <tr>
+                <td>开始时间： </td>
+                <td><input type="text" value="startime"></td>
+            </tr>
+            <br/>
+            <tr>
+                <td>结束时间： </td>
+                <td><input type="text" value="endtime"></td>
+            </tr>
+            <br/>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default">添加</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">取消 </button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

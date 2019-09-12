@@ -1,6 +1,7 @@
 package cn.mdsoftware.mdframework.dao.host;
 
 import cn.mdsoftware.mdframework.bean.entity.host.Hrtodaybaseinfo;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -13,8 +14,8 @@ public interface HrtodaybaseinfoMapper {
     @Select("select * from hr_today_baseinfo")
     List<Hrtodaybaseinfo>findAll();
 
-    @Select("select * from Hrtodaybaseinfo where id=#{id}")
-    Hrtodaybaseinfo findById(String id);
+    @Select("select * from Hrtodaybaseinfo where gonghao=#{gonghao}")
+    Hrtodaybaseinfo findById(String gonghao);
 
     @Update("update Hrtodaybaseinfo set gonghao=#{gonghao},name=#{name},sex=#{sex}," +
             "height=#{height},natton=#{natton},class=#{Classa},birthday=#{birthday}," +
@@ -26,4 +27,7 @@ public interface HrtodaybaseinfoMapper {
             "ztijiaodate=#{ztijiaodate},lzyy=#{lzyy},lzdate=#{lzdate}," +
             "zhaopian=#{zhaopian},xuehui=#{xuehui},zhuanke=#{zhuanke} where id=#{id}")
     int up(Hrtodaybaseinfo hb);
+
+    @Insert("insert into Hrtodaybaseinfo (student,score) values (#{student},#{score})")
+    public int add(Hrtodaybaseinfo htb);
 }

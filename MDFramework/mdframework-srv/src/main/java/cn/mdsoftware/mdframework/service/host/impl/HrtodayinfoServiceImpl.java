@@ -28,4 +28,9 @@ public class HrtodayinfoServiceImpl implements HrtodayinfoService {
     public int up(Hrtodayinfo ht) {
         return htm.up(ht);
     }
+
+    @Override
+    public int add(Hrtodayinfo ht) {
+        return htm.add(ht);
+    }
 }
