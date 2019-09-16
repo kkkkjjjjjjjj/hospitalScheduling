@@ -43,13 +43,13 @@
                             <td><div class="da">开始时间</div></td>
                             <td><div class="da">结束时间</div></td>
                         </tr>
-                        <tr>
-                            <td><div class="da">1</div></td>
-                            <td><div class="da">白</div></td>
-                            <td><div class="da">白班</div></td>
-                            <td><div class="da">8</div></td>
-                            <td><div class="da"></div></td>
-                            <td><div class="da"></div></td>
+                        <tr th:each="sm:${sm}">
+                            <td><div class="da"><span th:text="${sm.xh}"></span></div></td>
+                            <td><div class="da"><span th:text="${sm.jc}"></span></div></td>
+                            <td><div class="da"><span th:text="${sm.xx}"></span></div></td>
+                            <td><div class="da"><span th:text="${sm.shijian}"></span></div></td>
+                            <td><div class="da"><span th:text="${sm.starttime}"></span></div></td>
+                            <td><div class="da"><span th:text="${sm.endtime}"></span></div></td>
                         </tr>
                     </table>
                 </div>
@@ -66,9 +66,9 @@
                             <td><div class="da">详细描述</div></td>
                         </tr>
                         <tr>
-                            <td><div class="da">1</div></td>
-                            <td><div class="da">白</div></td>
-                            <td><div class="da">白班</div></td>
+                            <td><div class="da"><span th:text="${sm.xh}"></span></div></td>
+                            <td><div class="da"><span th:text="${sm.jc}"></span></div></td>
+                            <td><div class="da"><span th:text="${sm.xx}"></span></div></td>
                         </tr>
                     </table>
                 </div>
@@ -80,8 +80,12 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">护理部操作</div>
                 <div class="panel-body" style="text-align: center">
-                    <button style="font-size: 24px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">添加</button>
-                    <button style="font-size: 24px" type="button"class="btn btn-primary btn-lg" >删除</button>
+                    <button style="font-size: 24px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                        <a th:href="@{/a}" style="color: white">添加</a>
+                    </button>
+                    <button style="font-size: 24px" type="button"class="btn btn-primary btn-lg" >
+                        <a th:href="@{/del(id=${h.id})}" style="color: white">删除</a>
+                    </button>
                     <button style="font-size: 24px" type="button"class="btn btn-primary btn-lg" >保存</button>
                     <button style="font-size: 24px" type="button"class="btn btn-primary btn-lg" >排班参数设置</button>
                 </div>
@@ -132,7 +136,7 @@
             <br/>
             <tr>
                 <td>开始时间： </td>
-                <td><input type="text" value="startime"></td>
+                <td><input type="text" value="starttime"></td>
             </tr>
             <br/>
             <tr>
@@ -144,9 +148,7 @@
                 <button type="button" class="btn btn-default">添加</button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal">取消 </button>
             </div>
-
         </div>
-
     </div>
 </div>
 
