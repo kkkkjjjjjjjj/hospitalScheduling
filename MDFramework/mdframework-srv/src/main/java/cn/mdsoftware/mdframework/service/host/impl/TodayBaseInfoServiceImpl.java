@@ -10,25 +10,25 @@ import java.util.List;
 @Service
 public class TodayBaseInfoServiceImpl implements TodayBaseInfoService {
     @Autowired
-    private TodayBaseInfoMapper hbm;
+    private TodayBaseInfoMapper todayBaseInfoMapper;
 
     @Override
     public List<TodayBaseInfoDO> findAll() {
-        return hbm.findAll();
+        return todayBaseInfoMapper.findAll();
     }
 
     @Override
     public TodayBaseInfoDO findById(String gonghao) {
-        return hbm.findById(gonghao);
+        return todayBaseInfoMapper.findById(gonghao);
     }
 
     @Override
-    public int up(TodayBaseInfoDO hb) {
-        return hbm.up(hb);
+    public int up(TodayBaseInfoDO todayBaseInfoDO) {
+        return todayBaseInfoMapper.up(todayBaseInfoDO);
     }
 
     @Override
-    public int add(TodayBaseInfoDO htb) {
-        return hbm.add(htb);
+    public int add(TodayBaseInfoDO todayBaseInfoDO) {
+        return todayBaseInfoMapper.add(todayBaseInfoDO);
     }
 }

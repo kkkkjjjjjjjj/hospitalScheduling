@@ -10,27 +10,27 @@ import java.util.List;
 @Service
 public class PaiBanDicthlbServiceImpl implements PaiBanDicthlbService {
     @Autowired
-    private PaibanDicthlbMapper hp;
+    private PaibanDicthlbMapper paibanDicthlbMapper;
 
 
     @Override
     public List<PaibanDicthlbDO> findAll() {
-        return hp.findAll();
+        return paibanDicthlbMapper.findAll();
     }
 
     @Override
     public PaibanDicthlbDO findById(String xh) {
-        return hp.findById(xh);
+        return paibanDicthlbMapper.findById(xh);
     }
 
     @Override
-    public int add(PaibanDicthlbDO hpb) {
-        return hp.add(hpb);
+    public int add(PaibanDicthlbDO paibanDicthlbDO) {
+        return paibanDicthlbMapper.add(paibanDicthlbDO);
     }
 
     @Override
     public int del(Integer xh) {
 
-        return hp.del(xh);
+        return paibanDicthlbMapper.del(xh);
     }
 }

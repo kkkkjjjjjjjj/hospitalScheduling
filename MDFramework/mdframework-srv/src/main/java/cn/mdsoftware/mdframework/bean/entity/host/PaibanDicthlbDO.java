@@ -1,5 +1,5 @@
 package cn.mdsoftware.mdframework.bean.entity.host;
-
+//人员排班字典
 public class PaibanDicthlbDO {
     private Integer xh;             //对应数据库xh   序号
     private String jc;              //对应数据库jc    简称

@@ -41,9 +41,9 @@
                 <td><button>姓名</button></td>
             </tr>
 
-            <tr>
-                <td>0593</td>
-                <td>李金玲</td>
+            <tr th:each="wardDOList:${wardDOList}">
+                <td><span th:text="${wardDOList.userName}}"></span></td>
+                <td><span th:text="${wardDOList.name}}"></span></td>
             </tr>
         </table>
     </div>
@@ -57,11 +57,10 @@
                 <td><button>工号</button></td>
                 <td><button>姓名</button></td>
             </tr>
-            <tr>
-                <td>1</td>
-                <td>0593</td>
-                <td>李金玲</td>
-                <br/>
+            <tr th:each="wardDOList:${wardDOList}">
+                <td><span th:text="${wardDOList.xh}}"></span></td>
+                <td><span th:text="${wardDOList.userName}}"></span></td>
+                <td><span th:text="${wardDOList.name}}"></span></td>
             </tr>
         </table>
     </div>
