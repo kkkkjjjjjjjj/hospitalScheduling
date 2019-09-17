@@ -13129,7 +13129,7 @@
 		 * Type based plug-ins.
 		 *
 		 * Each column in DataTables has a type assigned to it, either by automatic
-		 * detection or by direct assignment using the `type` option for the column.
+		 * detection or by direct assignment using the type option for the column.
 		 * The type of a column will effect how it is ordering and search (plug-ins
 		 * can also make use of the column type if required).
 		 *
