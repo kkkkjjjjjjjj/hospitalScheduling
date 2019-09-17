@@ -37,18 +37,18 @@ public class PaibanController {
         return "redirect:TestA";
     }
 
-    //姹備竴鍛ㄧ殑鏃堕棿
+    //求一周的时间
     @RequestMapping("/weekTime")
-    public void Date(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+    public void Date(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd");
         Calendar c = Calendar.getInstance();
         Day day=new Day();
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        int month = c.get(Calendar.MONTH)+1;
+        int month = c.get(Calendar.MONTH) + 1;
         int date = c.get(Calendar.DATE);
-        int week=c.get(Calendar.WEEK_OF_MONTH)+1;
+        int week = c.get(Calendar.WEEK_OF_MONTH) + 1;
 
 
         day.setMonth(month);
