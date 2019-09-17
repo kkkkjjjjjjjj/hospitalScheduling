@@ -15,8 +15,12 @@
             padding: 0;
         }
         table td{
-            padding-left: 10px;
+          border: 1px #b3d4fd solid;
         }
+        table td button{
+            width: 100%;
+        }
+
         .panel-body{
             font-size: 18px;
         }
@@ -36,9 +40,10 @@
                 <td><button>工号</button></td>
                 <td><button>姓名</button></td>
             </tr>
-            <tr>
-                <td>0593</td>
-                <td>李金玲</td>
+
+            <tr th:each="wardDOList:${wardDOList}">
+                <td><span th:text="${wardDOList.userName}}"></span></td>
+                <td><span th:text="${wardDOList.name}}"></span></td>
             </tr>
         </table>
     </div>
@@ -46,17 +51,16 @@
 <div class="panel panel-primary">
     <div class="panel-heading">本病区人员信息</div>
     <div class="panel-body">
-        <table>
+        <table style="text-align: center">
             <tr>
                 <td><button>序号</button></td>
                 <td><button>工号</button></td>
                 <td><button>姓名</button></td>
             </tr>
-            <tr>
-                <td>1</td>
-                <td>0593</td>
-                <td>李金玲</td>
-                <br/>
+            <tr th:each="wardDOList:${wardDOList}">
+                <td><span th:text="${wardDOList.xh}}"></span></td>
+                <td><span th:text="${wardDOList.userName}}"></span></td>
+                <td><span th:text="${wardDOList.name}}"></span></td>
             </tr>
         </table>
     </div>
@@ -72,13 +76,13 @@
             </select>
             </div>
             <div class="col-md-2">
-                姓名<input type="text" value="李金玲" style="height: 50px;width: 90px">
+                姓名<input id="name" type="text" value="李金玲" style="height: 50px;width: 90px">
             </div>
             <div class="col-md-2">
-                工号<input type="text" value="0593" style="height: 50px;width: 90px">
+                工号<input id="Job_number" type="text" value="0593" style="height: 50px;width: 90px">
             </div>
             <div class="col-md-2">
-                序号<input type="text" value="李金玲" style="height: 50px;width: 90px">
+                序号<input id="Serial_number" type="text" value="李金玲" style="height: 50px;width: 90px">
             </div>
             <div class="col-md-4" style="font-size: 24px">
                 <button>刷新</button>
@@ -88,6 +92,9 @@
         </div>
     </div>
 </div>
+
+
+
 
 </body>
 </html>

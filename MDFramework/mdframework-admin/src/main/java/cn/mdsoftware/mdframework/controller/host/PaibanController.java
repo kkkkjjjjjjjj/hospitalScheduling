@@ -1,9 +1,9 @@
 package cn.mdsoftware.mdframework.controller.host;
 
 import cn.mdsoftware.mdframework.bean.entity.host.Day;
-import cn.mdsoftware.mdframework.bean.entity.host.Hrtodaybaseinfo;
-import cn.mdsoftware.mdframework.service.host.HrtodaybaseinfoService;
-import cn.mdsoftware.mdframework.service.host.HrtodayinfoService;
+import cn.mdsoftware.mdframework.bean.entity.host.TodayBaseInfoDO;
+import cn.mdsoftware.mdframework.service.host.TodayBaseInfoService;
+import cn.mdsoftware.mdframework.service.host.TodayInfoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,28 +21,28 @@ import java.util.List;
 @Controller
 public class PaibanController {
     @Autowired
-    HrtodayinfoService hti;
+    TodayInfoService todayInfoService;
     @Autowired
-    HrtodaybaseinfoService hdb;
-
-    @RequestMapping("paiban")
-    public String find(Model m) {
-        List<Hrtodaybaseinfo> sm = hdb.findAll();
-        m.addAttribute("sm", sm);
+    TodayBaseInfoService todayBaseInfoService;
+    @RequestMapping("/paiban")
+    public String find(Model m){
+        List<TodayBaseInfoDO> hrtodaybaseinfoList=todayBaseInfoService.findAll();
+        m.addAttribute("hrtodaybaseinfoList",hrtodaybaseinfoList);
         return "paiban";
     }
 
     @RequestMapping("/add")
-    public String add(Hrtodaybaseinfo htdb) {
-        hdb.add(htdb);
+    public String add(TodayBaseInfoDO htdb){
+        todayBaseInfoService.add(htdb);
         return "redirect:TestA";
     }
 
-    @RequestMapping("/aaa")
+    //求一周的时间
+    @RequestMapping("/weekTime")
     public void Date(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd");
         Calendar c = Calendar.getInstance();
-        Day bbBean = new Day();
+        Day day=new Day();
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
@@ -51,11 +51,11 @@ public class PaibanController {
         int week = c.get(Calendar.WEEK_OF_MONTH) + 1;
 
 
-        bbBean.setMonth(month);
-        bbBean.setDay(date);
-        bbBean.setWeek(week);
-        ObjectMapper mapper = new ObjectMapper();
-        String jsonStr = mapper.writeValueAsString(bbBean);
+        day.setMonth(month);
+        day.setDay(date);
+        day.setWeek(week);
+        ObjectMapper objectMapper =new ObjectMapper();
+        String jsonStr=objectMapper.writeValueAsString(day);
         response.getWriter().print(jsonStr);
 
     }
