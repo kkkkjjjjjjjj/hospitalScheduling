@@ -24,38 +24,39 @@ public class PaibanController {
     HrtodayinfoService hti;
     @Autowired
     HrtodaybaseinfoService hdb;
+
     @RequestMapping("paiban")
-    public String find(Model m){
-        List<Hrtodaybaseinfo> sm=hdb.findAll();
-        m.addAttribute("sm",sm);
+    public String find(Model m) {
+        List<Hrtodaybaseinfo> sm = hdb.findAll();
+        m.addAttribute("sm", sm);
         return "paiban";
     }
 
     @RequestMapping("/add")
-    public String add(Hrtodaybaseinfo htdb){
+    public String add(Hrtodaybaseinfo htdb) {
         hdb.add(htdb);
         return "redirect:TestA";
     }
 
     @RequestMapping("/aaa")
-    public void Date(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+    public void Date(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd");
         Calendar c = Calendar.getInstance();
-        Day bbBean=new Day();
+        Day bbBean = new Day();
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        int month = c.get(Calendar.MONTH)+1;
+        int month = c.get(Calendar.MONTH) + 1;
         int date = c.get(Calendar.DATE);
-        int week=c.get(Calendar.WEEK_OF_MONTH)+1;
+        int week = c.get(Calendar.WEEK_OF_MONTH) + 1;
 
 
-                bbBean.setMonth(month);
-                bbBean.setDay(date);
-                bbBean.setWeek(week);
-                ObjectMapper mapper =new ObjectMapper();
-                String jsonStr=mapper.writeValueAsString(bbBean);
-                response.getWriter().print(jsonStr);
+        bbBean.setMonth(month);
+        bbBean.setDay(date);
+        bbBean.setWeek(week);
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonStr = mapper.writeValueAsString(bbBean);
+        response.getWriter().print(jsonStr);
 
     }
 
