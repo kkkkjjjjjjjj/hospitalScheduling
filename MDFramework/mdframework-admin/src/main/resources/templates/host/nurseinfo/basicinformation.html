@@ -19,9 +19,9 @@
             <td><button>操作</button></td>
         </tr>
         <br/>
-        <tr th:each="todayBaseInfoDOList:${todayBaseInfoDOList}">
-            <td><span th:text="${todayBaseInfoDOList.gonghao}"></span></td>
-            <td><span th:text="${todayBaseInfoDOList.name}"></span></td>
+        <tr th:each="todayBaseInfoDO:${todayBaseInfoDO}">
+            <td><span th:text="${todayBaseInfoDO.gonghao}"></span></td>
+            <td><span th:text="${todayBaseInfoDO.name}"></span></td>
             <td>
                 <a th:href="@{/edit(id=${sc.id})}">修改</a>
             </td>
