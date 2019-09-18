@@ -43,13 +43,13 @@
                             <td><div class="da">开始时间</div></td>
                             <td><div class="da">结束时间</div></td>
                         </tr>
-                        <tr th:each="sm:${sm}">
-                            <td><div class="da"><span th:text="${sm.xh}"></span></div></td>
-                            <td><div class="da"><span th:text="${sm.jc}"></span></div></td>
-                            <td><div class="da"><span th:text="${sm.xx}"></span></div></td>
-                            <td><div class="da"><span th:text="${sm.shijian}"></span></div></td>
-                            <td><div class="da"><span th:text="${sm.starttime}"></span></div></td>
-                            <td><div class="da"><span th:text="${sm.endtime}"></span></div></td>
+                        <tr th:each="schedulingDOS:${schedulingDOS}">
+                            <td><div class="da"><span th:text="${schedulingDOS.xh}"></span></div></td>
+                            <td><div class="da"><span th:text="${schedulingDOS.jc}"></span></div></td>
+                            <td><div class="da"><span th:text="${schedulingDOS.xx}"></span></div></td>
+                            <td><div class="da"><span th:text="${schedulingDOS.shijian}"></span></div></td>
+                            <td><div class="da"><span th:text="${schedulingDOS.starttime}"></span></div></td>
+                            <td><div class="da"><span th:text="${schedulingDOS.endtime}"></span></div></td>
                         </tr>
                     </table>
                 </div>
@@ -65,10 +65,10 @@
                             <td><div class="da">简称</div></td>
                             <td><div class="da">详细描述</div></td>
                         </tr>
-                        <tr>
-                            <td><div class="da"><span th:text="${sm.xh}"></span></div></td>
-                            <td><div class="da"><span th:text="${sm.jc}"></span></div></td>
-                            <td><div class="da"><span th:text="${sm.xx}"></span></div></td>
+                        <tr th:each="schedulingDOS:${schedulingDOS}">
+                            <td><div class="da"><span th:text="${schedulingDOS.xh}"></span></div></td>
+                            <td><div class="da"><span th:text="${schedulingDOS.jc}"></span></div></td>
+                            <td><div class="da"><span th:text="${schedulingDOS.xx}"></span></div></td>
                         </tr>
                     </table>
                 </div>

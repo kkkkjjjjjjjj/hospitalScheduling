@@ -32,14 +32,14 @@ public class SchedulingController {
     }
     //添加
     @RequestMapping("/add")
-    public String add(TodayBaseInfoDO htdb){
-        todayBaseInfoService.add(htdb);
+    public String add(TodayBaseInfoDO todayBaseInfoDO){
+        todayBaseInfoService.add(todayBaseInfoDO);
         return "redirect:Scheduling";
     }
 
     @RequestMapping("/weekTime")
     public void Date(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Calendar c = Calendar.getInstance();
         Day day=new Day();
         request.setCharacterEncoding("UTF-8");

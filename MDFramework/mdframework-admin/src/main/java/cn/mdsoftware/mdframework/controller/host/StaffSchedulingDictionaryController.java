@@ -17,8 +17,8 @@ public class StaffSchedulingDictionaryController {
     SchedulingService schedulingService;
     @RequestMapping("/Dictionary")
     public String All(Model m){
-        List<SchedulingDO> sm=schedulingService.findAll();
-        m.addAttribute("sm",sm);
+        List<SchedulingDO> schedulingDOS=schedulingService.findAll();
+        m.addAttribute("schedulingDOS",schedulingDOS);
         return "StaffSchedulingDictionary";
     }
 
@@ -28,8 +28,8 @@ public class StaffSchedulingDictionaryController {
     }
 
     @RequestMapping("/add")
-    public String add(SchedulingDO htdb){
-        schedulingService.add(htdb);
+    public String add(SchedulingDO schedulingDO){
+        schedulingService.add(schedulingDO);
         return "redirect:StaffSchedulingDictionary";
     }
     @RequestMapping("/del")

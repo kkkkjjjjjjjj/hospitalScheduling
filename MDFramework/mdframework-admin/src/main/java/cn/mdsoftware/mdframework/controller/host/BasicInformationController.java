@@ -39,9 +39,9 @@ public class BasicInformationController {
      * 修改
      */
     @RequestMapping("/edit")
-    public String up(TodayBaseInfoDO htdb, TodayInfoDO htf){
-        todayBaseInfoService.up(htdb);
-        todayInfoService.up(htf);
+    public String up(TodayBaseInfoDO todayBaseInfoDO, TodayInfoDO todayInfoDO){
+        todayBaseInfoService.up(todayBaseInfoDO);
+        todayInfoService.up(todayInfoDO);
         return "redirect:BasicInformation";
     }
     /**
