@@ -157,7 +157,6 @@
 
 		<!-- https://mvnrepository.com/artifact/com.oracle/ojdbc14 -->
 
-
 		<dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc6</artifactId>

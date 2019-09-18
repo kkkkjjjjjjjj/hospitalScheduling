@@ -4,10 +4,9 @@ import cn.mdsoftware.mdframework.bean.entity.host.SchedulingDO;
 import cn.mdsoftware.mdframework.dao.host.SchedulingMapper;
 import cn.mdsoftware.mdframework.service.host.SchedulingService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service
+
 public class SchedulingServiceImpl implements SchedulingService {
     @Autowired
     private SchedulingMapper schedulingMapper;

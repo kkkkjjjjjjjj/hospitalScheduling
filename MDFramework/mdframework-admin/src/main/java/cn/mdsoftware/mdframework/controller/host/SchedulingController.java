@@ -5,7 +5,6 @@ import cn.mdsoftware.mdframework.bean.entity.host.TodayBaseInfoDO;
 import cn.mdsoftware.mdframework.service.host.TodayBaseInfoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,9 +15,8 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
-@Controller
+ 
 @RequestMapping("Scheduling")
-//排班
 public class SchedulingController {
     @Autowired
     TodayBaseInfoService todayBaseInfoService;
@@ -37,6 +35,7 @@ public class SchedulingController {
         return "redirect:Scheduling";
     }
 
+    //��һ�ܵ�ʱ��
     @RequestMapping("/weekTime")
     public void Date(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
