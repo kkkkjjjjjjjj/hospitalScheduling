@@ -19,6 +19,7 @@ import java.util.Calendar;
 import java.util.List;
 
 @Controller
+@RequestMapping("/paiban")
 public class PaibanController {
     @Autowired
     TodayInfoService todayInfoService;
@@ -37,7 +38,7 @@ public class PaibanController {
         return "redirect:TestA";
     }
 
-    //求一周的时间
+    //锟斤拷一锟杰碉拷时锟斤拷
     @RequestMapping("/weekTime")
     public void Date(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd");

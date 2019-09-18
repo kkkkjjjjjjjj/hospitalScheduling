@@ -3,9 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/mdframework-admin/mdframework-admin.iml" filepath="$PROJECT_DIR$/mdframework-admin/mdframework-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mdframework-admin/mdframework-admin.iml" filepath="$PROJECT_DIR$/mdframework-admin/mdframework-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mdframework-api/mdframework-api.iml" filepath="$PROJECT_DIR$/mdframework-api/mdframework-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/mdframework-api/mdframework-api.iml" filepath="$PROJECT_DIR$/mdframework-api/mdframework-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/mdframework-parent.iml" filepath="$PROJECT_DIR$/mdframework-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/mdframework-resource/mdframework-resource.iml" filepath="$PROJECT_DIR$/mdframework-resource/mdframework-resource.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mdframework-srv/mdframework-srv.iml" filepath="$PROJECT_DIR$/mdframework-srv/mdframework-srv.iml" />
       <module fileurl="file://$PROJECT_DIR$/mdframework-srv/mdframework-srv.iml" filepath="$PROJECT_DIR$/mdframework-srv/mdframework-srv.iml" />
     </modules>
   </component>
