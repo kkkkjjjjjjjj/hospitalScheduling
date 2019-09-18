@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 @Controller
 @RequestMapping("/BasicInformation")
+//人员基本信息
 public class BasicInformationController {
 
     @Autowired

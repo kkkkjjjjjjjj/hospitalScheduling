@@ -11,6 +11,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/ward")
+//病区人员排序
 public class WardController {
 
     @Autowired
