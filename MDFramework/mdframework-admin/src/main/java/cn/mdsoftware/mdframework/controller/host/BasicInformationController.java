@@ -50,10 +50,10 @@ public class BasicInformationController {
 
     @RequestMapping("/ed")
     public String find(String id,Model m){
-        TodayBaseInfoDO hrtodaybaseinfoServiceById=todayBaseInfoService.findById(id);
-        TodayInfoDO hrtodayinfoServiceById=todayInfoService.findById(id);
-        m.addAttribute("hrtodaybaseinfoServiceById",hrtodaybaseinfoServiceById);
-        m.addAttribute("hrtodayinfoServiceById",hrtodayinfoServiceById);
+        TodayBaseInfoDO todayBaseInfoDO=todayBaseInfoService.findById(id);
+        TodayInfoDO todayInfoDO=todayInfoService.findById(id);
+        m.addAttribute("hrtodaybaseinfoServiceById",todayBaseInfoDO);
+        m.addAttribute("hrtodayinfoServiceById",todayBaseInfoDO);
         return "edit";
     }
 }
