@@ -15,8 +15,7 @@ public interface WardMapper {
     @Select("select * from HR_PAIBAN_ZHIBAN_RENYUAN where xh!=null")
     List<WardDO> findByXH();
 
-    @Update("update Hrtodaybaseinfo set xh=#{xh},name=#{name}," +
-            "ward_code=#{wardCode},ward_name=#{wardName},zu=#{zu} where user_name=#{userName}")
+    @Update("update Hrtodaybaseinfo set xh=#{xh},user_name=#{userName},where user_name=#{userName}")
     int up(WardDO paibanRenYuanDO);
 
 

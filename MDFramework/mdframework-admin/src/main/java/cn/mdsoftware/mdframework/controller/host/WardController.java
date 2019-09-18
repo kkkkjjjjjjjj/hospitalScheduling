@@ -10,18 +10,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
+@RequestMapping("/ward")
 public class WardController {
 
     @Autowired
     WardService wardService;
 
-    @RequestMapping("bingqu")
+    @RequestMapping("/ward")
     public String find(Model model){
         List<WardDO> wardDOList=wardService.findAll();
         List<WardDO> wardDOS=wardService.findByXH();
         model.addAttribute("wardDOList",wardDOList);
         model.addAttribute("wardDOS",wardDOS);
-        return "bingqu";
+        return "Ward";
     }
 
 
