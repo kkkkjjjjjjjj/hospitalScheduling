@@ -37,7 +37,6 @@ public class SchedulingController {
         return "redirect:Scheduling";
     }
 
-    //求一周的时间
     @RequestMapping("/weekTime")
     public void Date(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd");
