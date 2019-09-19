@@ -18,10 +18,7 @@ public class WardServiceImpl implements WardService {
         return wardMapper.findAll();
     }
 
-    @Override
-    public List<WardDO> findByXH() {
-        return wardMapper.findByXH();
-    }
+
 
     @Override
     public int up(WardDO wardDO) {

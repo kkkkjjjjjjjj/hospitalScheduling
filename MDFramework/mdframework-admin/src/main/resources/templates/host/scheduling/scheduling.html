@@ -73,9 +73,9 @@
             <button>备注</button>
         </td>
     </tr>
-    <tr th:each="todayBaseInfoDOS:${todayBaseInfoDOS}">
-        <td><span  th:text="${todayBaseInfoDOS.classz}"></span></td>
-        <td><span  th:text="${todayBaseInfoDOS.name}"></span></td>
+    <tr th:each="todayB:${todayBaseInfoDOS}">
+        <td><span  th:text="${todayB.classz}"></span></td>
+        <td><span  th:text="${todayB.name}"></span></td>
         <td>
             <select>
                 <option value="休">休</option>

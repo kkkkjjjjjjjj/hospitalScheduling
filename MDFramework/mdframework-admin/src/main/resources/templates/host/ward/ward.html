@@ -3,12 +3,6 @@
 <head>
     <title>Title</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script type="text/javascript" src="http://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
     <style>
         *{
             margin: 0;
@@ -41,9 +35,9 @@
                 <td><button>姓名</button></td>
             </tr>
 
-            <tr th:each="wardDOList:${wardDOList}">
-                <td><span th:text="${wardDOList.userName}}"></span></td>
-                <td><span th:text="${wardDOList.name}}"></span></td>
+            <tr th:each="wardDO:${wardDOList}">
+                <td><span th:text="${wardDO.userName}"></span></td>
+                <td><span th:text="${wardDO.name}"></span></td>
             </tr>
         </table>
     </div>
@@ -57,10 +51,10 @@
                 <td><button>工号</button></td>
                 <td><button>姓名</button></td>
             </tr>
-            <tr th:each="wardDOList:${wardDOList}">
-                <td><span th:text="${wardDOList.xh}}"></span></td>
-                <td><span th:text="${wardDOList.userName}}"></span></td>
-                <td><span th:text="${wardDOList.name}}"></span></td>
+            <tr th:each="ward:${wardDOList}">
+                <td><span th:text="${ward.xh}"></span></td>
+                <td><span th:text="${ward.userName}"></span></td>
+                <td><span th:text="${ward.name}"></span></td>
             </tr>
         </table>
     </div>
@@ -95,6 +89,6 @@
 
 
 
-
+<div th:include="include::footer"></div>
 </body>
 </html>

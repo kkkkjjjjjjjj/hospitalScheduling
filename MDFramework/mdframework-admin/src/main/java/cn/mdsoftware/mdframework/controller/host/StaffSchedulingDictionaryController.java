@@ -11,6 +11,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("StaffSchedulingDictionary")
+
 public class StaffSchedulingDictionaryController {
     @Autowired
     SchedulingService schedulingService;

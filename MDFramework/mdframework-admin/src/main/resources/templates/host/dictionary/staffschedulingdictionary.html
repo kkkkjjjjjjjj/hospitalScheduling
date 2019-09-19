@@ -43,13 +43,13 @@
                             <td><div class="da">开始时间</div></td>
                             <td><div class="da">结束时间</div></td>
                         </tr>
-                        <tr th:each="schedulingDOS:${schedulingDOS}">
-                            <td><div class="da"><span th:text="${schedulingDOS.xh}"></span></div></td>
-                            <td><div class="da"><span th:text="${schedulingDOS.jc}"></span></div></td>
-                            <td><div class="da"><span th:text="${schedulingDOS.xx}"></span></div></td>
-                            <td><div class="da"><span th:text="${schedulingDOS.shijian}"></span></div></td>
-                            <td><div class="da"><span th:text="${schedulingDOS.starttime}"></span></div></td>
-                            <td><div class="da"><span th:text="${schedulingDOS.endtime}"></span></div></td>
+                        <tr th:each="scheduling:${schedulingDOS}">
+                            <td><div class="da"><span th:text="${scheduling.xh}"></span></div></td>
+                            <td><div class="da"><span th:text="${scheduling.jc}"></span></div></td>
+                            <td><div class="da"><span th:text="${scheduling.xx}"></span></div></td>
+                            <td><div class="da"><span th:text="${scheduling.shijian}"></span></div></td>
+                            <td><div class="da"><span th:text="${scheduling.starttime}"></span></div></td>
+                            <td><div class="da"><span th:text="${scheduling.endtime}"></span></div></td>
                         </tr>
                     </table>
                 </div>
