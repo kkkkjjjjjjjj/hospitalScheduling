@@ -89,6 +89,7 @@ public class RoleServiceImpl implements RoleService {
 	}
 
 	@Override
+	@Transactional(rollbackFor=Exception.class)
 	public int update(RoleDO role) {
 		int r = roleMapper.update(role);
 		List<Long> menuIds = role.getMenuIds();

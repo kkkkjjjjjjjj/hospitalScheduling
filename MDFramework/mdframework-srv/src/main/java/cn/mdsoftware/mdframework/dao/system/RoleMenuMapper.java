@@ -15,10 +15,11 @@ public interface RoleMenuMapper {
 	int save(RoleMenuDO rm);
 	
 	@Insert("<script>" + 
-			"INSERT INTO sys_role_menu(role_id, menu_id) values"+
-			" <foreach collection=\"list\" item=\"item\" index=\"index\" separator=\",\" >  " + 
-			" (#{item.roleId},#{item.menuId})" + 
-			" </foreach>  "+ 
+			"INSERT ALL " +
+			" <foreach collection=\"list\" item=\"item\" index=\"index\" >  " +
+			"INTO sys_role_menu(role_id, menu_id) values (#{item.roleId},#{item.menuId})"+
+			" </foreach> " +
+			"SELECT 1 FROM DUAL "+
 			"</script>")
 	int batchSave(List<RoleMenuDO> list);
 
