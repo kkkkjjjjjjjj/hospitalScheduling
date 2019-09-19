@@ -1,6 +1,7 @@
 package cn.mdsoftware.mdframework.service.host;
 
 import cn.mdsoftware.mdframework.bean.entity.host.SchedulingDO;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 

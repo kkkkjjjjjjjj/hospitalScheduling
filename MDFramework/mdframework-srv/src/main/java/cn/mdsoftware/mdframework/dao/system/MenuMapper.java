@@ -27,7 +27,7 @@ public interface MenuMapper {
 	@Delete("delete from sys_menu where menu_id = #{id}")
 	int remove(Long id);
 
-	@Insert("insert sys_menu(parent_id,name,url,perms,type,icon) values(#{parentId},#{name},#{url},#{perms},#{type},#{icon})")
+	@Insert("insert into sys_menu(parent_id,name,url,perms,type,icon) values(#{parentId},#{name},#{url},#{perms},#{type},#{icon})")
 	int save(MenuDO menu);
 
 	@Update("UPDATE sys_menu SET  name=#{name}, url=#{url},  icon=#{icon},type=#{type},perms=#{perms} WHERE menu_id=#{menuId}")

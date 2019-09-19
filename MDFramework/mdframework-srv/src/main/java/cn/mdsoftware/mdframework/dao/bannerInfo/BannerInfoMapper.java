@@ -59,24 +59,24 @@ public interface BannerInfoMapper {
 			"</script>")
 	int count(Map<String, Object> map);
 	
-	@Insert("insert into banner_info (`user_id`, `title`, `main_pic`, `link_url`, `order_by`, `start_time`, `end_time`, `status`, `create_time`, `del_status`)"
-	+ "values (#{userId}, #{title}, #{mainPic}, #{linkUrl}, #{orderBy}, #{startTime}, #{endTime}, #{status}, #{createTime}, #{delStatus})")
+	@Insert("insert into banner_info ( user_id ,  title ,  main_pic ,  link_url ,  order_by ,  start_time ,  end_time ,  status ,  create_time ,  del_status )"
+	+ "values (#{userId,jdbcType=NUMERIC}, #{title}, #{mainPic}, #{linkUrl}, #{orderBy}, to_date(#{startTime},'yyyy-mm-dd'), to_date(#{endTime},'yyyy-mm-dd'), #{status}, to_date(#{createTime},'yyyy-mm-dd hh24:mi:ss'), #{delStatus})")
 	int save(BannerInfoDO bannerInfo);
 	
 	@Update("<script>"+ 
 			"update banner_info " + 
 					"<set>" + 
-		            "<if test=\"id != null\">`id` = #{id}, </if>" + 
-                    "<if test=\"userId != null\">`user_id` = #{userId}, </if>" + 
-                    "<if test=\"title != null\">`title` = #{title}, </if>" + 
-                    "<if test=\"mainPic != null\">`main_pic` = #{mainPic}, </if>" + 
-                    "<if test=\"linkUrl != null\">`link_url` = #{linkUrl}, </if>" + 
-                    "<if test=\"orderBy != null\">`order_by` = #{orderBy}, </if>" + 
-                    "<if test=\"startTime != null\">`start_time` = #{startTime}, </if>" + 
-                    "<if test=\"endTime != null\">`end_time` = #{endTime}, </if>" + 
-                    "<if test=\"status != null\">`status` = #{status}, </if>" + 
-                    "<if test=\"createTime != null\">`create_time` = #{createTime}, </if>" + 
-                    "<if test=\"delStatus != null\">`del_status` = #{delStatus}, </if>" + 
+		            "<if test=\"id != null\"> id  = #{id}, </if>" + 
+                    "<if test=\"userId != null\"> user_id  = #{userId}, </if>" + 
+                    "<if test=\"title != null\"> title  = #{title}, </if>" + 
+                    "<if test=\"mainPic != null\"> main_pic  = #{mainPic}, </if>" + 
+                    "<if test=\"linkUrl != null\"> link_url  = #{linkUrl}, </if>" + 
+                    "<if test=\"orderBy != null\"> order_by  = #{orderBy}, </if>" + 
+                    "<if test=\"startTime != null\"> start_time  = #{startTime}, </if>" + 
+                    "<if test=\"endTime != null\"> end_time  = #{endTime}, </if>" + 
+                    "<if test=\"status != null\"> status  = #{status}, </if>" + 
+                    "<if test=\"createTime != null\"> create_time  = #{createTime}, </if>" + 
+                    "<if test=\"delStatus != null\"> del_status  = #{delStatus}, </if>" + 
           					"</set>" + 
 					"where id = #{id}"+
 			"</script>")

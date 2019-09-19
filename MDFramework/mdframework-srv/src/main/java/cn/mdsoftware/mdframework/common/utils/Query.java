@@ -1,5 +1,7 @@
 package cn.mdsoftware.mdframework.common.utils;
 
+import com.github.pagehelper.PageHelper;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -18,9 +20,12 @@ public class Query extends LinkedHashMap<String, Object> {
 		// 分页参数
 		this.offset = Integer.parseInt(params.get("offset").toString());
 		this.limit = Integer.parseInt(params.get("limit").toString());
-		this.put("offset", offset);
-		this.put("page", offset / limit + 1);
-		this.put("limit", limit);
+//		this.put("offset", offset);
+//		this.put("page", offset / limit + 1);
+//		this.put("limit", limit);
+		this.remove("offset");
+		this.remove("limit");
+		PageHelper.startPage((offset / limit + 1),limit);
 	}
 
 	public int getOffset() {

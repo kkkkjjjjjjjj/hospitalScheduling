@@ -162,10 +162,14 @@
 			<artifactId>ojdbc6</artifactId>
 			<version>11.2.0.1.0</version>
 		</dependency>
+
+		<!-- pagehelper -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper-spring-boot-starter</artifactId>
+			<version>1.2.5</version>
 		</dependency>
+
 	 </dependencies>
 
 </project>

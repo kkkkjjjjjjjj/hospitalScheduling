@@ -5,6 +5,8 @@ import cn.mdsoftware.mdframework.common.utils.PageUtils;
 import cn.mdsoftware.mdframework.common.utils.Query;
 import cn.mdsoftware.mdframework.common.utils.R;
 import cn.mdsoftware.mdframework.service.bannerInfo.BannerInfoService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,36 +30,6 @@ import java.util.Map;
 @Controller
 @RequestMapping("/bannerInfo")
 public class BannerInfoController {
-
-//
-//	@RequestMapping("/a")
-//	@ResponseBody
-//	public String a(){
-//		return "成功";
-//	}
-//
-//	@RequestMapping("/b")
-//	@ResponseBody
-//	public String B(String name){
-//		if (name.equals("123"))
-//			return "已存在该用户";
-//		else
-//		return "可以使用";
-//	}
-//
-//
-//
-//	@RequestMapping("/c")
-//	@ResponseBody
-//	public String Test(String name){
-//
-//		if (name.equals("123123"))
-//			return "该账号已存在";
-//		else
-//		return "可以使用的账号";
-//	}
-
-
 	@Autowired
 	private BannerInfoService bannerInfoService;
 	
@@ -76,6 +48,8 @@ public class BannerInfoController {
 		List<BannerInfoDO> bannerInfoList = bannerInfoService.list(query);
 		int total = bannerInfoService.count(query);
 		PageUtils pageUtils = new PageUtils(bannerInfoList, total);
+//		PageInfo<BannerInfoDO> pageInfo = new PageInfo<>(bannerInfoService.list(query));
+//		return pageInfo;
 		return pageUtils;
 	}
 	
