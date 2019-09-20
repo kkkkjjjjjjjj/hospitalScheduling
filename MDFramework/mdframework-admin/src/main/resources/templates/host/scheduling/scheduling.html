@@ -67,8 +67,8 @@
             <button>备注</button>
         </td>
     </tr>
-    <tr th:each="schedul:${schedulingDOS}">
-        <td><span  th:text="${schedul.classz}"></span></td>
+    <tr th:each="schedul:${scheduls}">
+        <td><span  th:text="${schedul.wardName}"></span></td>
         <td><span  th:text="${schedul.name}"></span></td>
         <td>
             <select>
