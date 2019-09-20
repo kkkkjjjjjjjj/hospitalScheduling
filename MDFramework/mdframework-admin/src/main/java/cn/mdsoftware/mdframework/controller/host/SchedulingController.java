@@ -1,10 +1,11 @@
 package cn.mdsoftware.mdframework.controller.host;
 
 import cn.mdsoftware.mdframework.bean.entity.host.Day;
-import cn.mdsoftware.mdframework.bean.entity.host.TodayBaseInfoDO;
-import cn.mdsoftware.mdframework.service.host.TodayBaseInfoService;
+import cn.mdsoftware.mdframework.bean.entity.host.SchedulingDO;
+import cn.mdsoftware.mdframework.service.host.SchedulingService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -15,24 +16,25 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
- 
-@RequestMapping("Scheduling")
+@Controller
+@RequestMapping("/schedul")
+//排班
 public class SchedulingController {
     @Autowired
-    TodayBaseInfoService todayBaseInfoService;
+    SchedulingService schedulingService;
 
     //查询所有
-    @RequestMapping("/Scheduling")
+    @RequestMapping("/schedul")
     public String find(Model m){
-        List<TodayBaseInfoDO> todayBaseInfoDOS=todayBaseInfoService.findAll();
-        m.addAttribute("todayBaseInfoDOS",todayBaseInfoDOS);
-        return "Scheduling";
+        List<SchedulingDO> schedulingDOS=schedulingService.findAll();
+        m.addAttribute("schedulingDOS",schedulingDOS);
+        return "host/scheduling/scheduling";
     }
     //添加
     @RequestMapping("/add")
-    public String add(TodayBaseInfoDO todayBaseInfoDO){
-        todayBaseInfoService.add(todayBaseInfoDO);
-        return "redirect:Scheduling";
+    public String add(SchedulingDO schedulingDO){
+        schedulingService.add(schedulingDO);
+        return "redirect:host/scheduling/Scheduling";
     }
 
     //计算周时间

@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Update;
 import java.util.List;
 @Mapper
 public interface TodayInfoMapper {
-    @Select("select * from hr_today_info")
+    @Select("select * from hr_today_info where rownum<=10")
     List<TodayInfoDO> findAll();
 
     @Select("select * from hr_today_info where gonghao=#{gonghao}")

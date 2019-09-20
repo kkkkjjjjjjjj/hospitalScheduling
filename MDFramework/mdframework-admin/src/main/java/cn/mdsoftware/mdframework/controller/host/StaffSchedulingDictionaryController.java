@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("StaffSchedulingDictionary")
-
+@RequestMapping("/StaffSchedulingDictionary")
+//人员排班字典
 public class StaffSchedulingDictionaryController {
     @Autowired
     SchedulingService schedulingService;
@@ -19,7 +19,7 @@ public class StaffSchedulingDictionaryController {
     public String All(Model m){
         List<SchedulingDO> schedulingDOS=schedulingService.findAll();
         m.addAttribute("schedulingDOS",schedulingDOS);
-        return "StaffSchedulingDictionary";
+        return "host/dictionary/StaffSchedulingDictionary";
     }
 
     @RequestMapping("/Jump")

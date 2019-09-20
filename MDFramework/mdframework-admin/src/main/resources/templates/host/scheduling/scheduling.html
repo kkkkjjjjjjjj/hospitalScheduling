@@ -3,12 +3,6 @@
 <head>
     <title>Title</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script type="text/javascript" src="http://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
 </head>
 <style>
     body{
@@ -73,9 +67,9 @@
             <button>备注</button>
         </td>
     </tr>
-    <tr th:each="todayB:${todayBaseInfoDOS}">
-        <td><span  th:text="${todayB.classz}"></span></td>
-        <td><span  th:text="${todayB.name}"></span></td>
+    <tr th:each="schedul:${schedulingDOS}">
+        <td><span  th:text="${schedul.classz}"></span></td>
+        <td><span  th:text="${schedul.name}"></span></td>
         <td>
             <select>
                 <option value="休">休</option>
@@ -136,202 +130,7 @@
             <input type="text">
         </td>
     </tr>
-    <tr>
-        <td>N2</td>
-        <td>曲佳</td>
-        <td>
-            <select>
-                <option value="休">休</option>
-                <option value="白">白</option>
-                <option value="小夜">小夜</option>
-                <option value="夜">夜</option>
-            </select>
-        </td>
-        <td><select>
-            <option value="休">休</option>
-            <option value="白">白</option>
-            <option value="小夜">小夜</option>
-            <option value="夜">夜</option>
-        </select></td>
-        <td><select>
-            <option value="休">休</option>
-            <option value="白">白</option>
-            <option value="小夜">小夜</option>
-            <option value="夜">夜</option>
-        </select></td>
-        <td><select>
-            <option value="休">休</option>
-            <option value="白">白</option>
-            <option value="小夜">小夜</option>
-            <option value="夜">夜</option>
-        </select></td>
-        <td><select>
-            <option value="休">休</option>
-            <option value="白">白</option>
-            <option value="小夜">小夜</option>
-            <option value="夜">夜</option>
-        </select></td>
-        <td><select>
-            <option value="休">休</option>
-            <option value="白">白</option>
-            <option value="小夜">小夜</option>
-            <option value="夜">夜</option>
-        </select></td>
-        <td><select>
-            <option value="休">休</option>
-            <option value="白">白</option>
-            <option value="小夜">小夜</option>
-            <option value="夜">夜</option>
-        </select></td>
-        <td><input type="text"></td>
-    </tr>
-    <tr>
-        <td>N2</td>
-        <td>曲佳</td>
-        <td>
-            <select>
-                <option value="休">休</option>
-                <option value="白">白</option>
-                <option value="小夜">小夜</option>
-                <option value="夜">夜</option>
-            </select>
-        </td>
-        <td><select>
-            <option value="休">休</option>
-            <option value="白">白</option>
-            <option value="小夜">小夜</option>
-            <option value="夜">夜</option>
-        </select></td>
-        <td><select>
-            <option value="休">休</option>
-            <option value="白">白</option>
-            <option value="小夜">小夜</option>
-            <option value="夜">夜</option>
-        </select></td>
-        <td><select>
-            <option value="休">休</option>
-            <option value="白">白</option>
-            <option value="小夜">小夜</option>
-            <option value="夜">夜</option>
-        </select></td>
-        <td><select>
-            <option value="休">休</option>
-            <option value="白">白</option>
-            <option value="小夜">小夜</option>
-            <option value="夜">夜</option>
-        </select></td>
-        <td><select>
-            <option value="休">休</option>
-            <option value="白">白</option>
-            <option value="小夜">小夜</option>
-            <option value="夜">夜</option>
-        </select></td>
-        <td><select>
-            <option value="休">休</option>
-            <option value="白">白</option>
-            <option value="小夜">小夜</option>
-            <option value="夜">夜</option>
-        </select></td>
-        <td><input type="text"></td>
-    </tr>
-    <tr>
-        <td>N2</td>
-        <td>曲佳</td>
-        <td>
-            <select>
-                <option value="休">休</option>
-                <option value="白">白</option>
-                <option value="小夜">小夜</option>
-                <option value="夜">夜</option>
-            </select>
-        </td>
-        <td><select>
-            <option value="休">休</option>
-            <option value="白">白</option>
-            <option value="小夜">小夜</option>
-            <option value="夜">夜</option>
-        </select></td>
-        <td><select>
-            <option value="休">休</option>
-            <option value="白">白</option>
-            <option value="小夜">小夜</option>
-            <option value="夜">夜</option>
-        </select></td>
-        <td><select>
-            <option value="休">休</option>
-            <option value="白">白</option>
-            <option value="小夜">小夜</option>
-            <option value="夜">夜</option>
-        </select></td>
-        <td><select>
-            <option value="休">休</option>
-            <option value="白">白</option>
-            <option value="小夜">小夜</option>
-            <option value="夜">夜</option>
-        </select></td>
-        <td><select>
-            <option value="休">休</option>
-            <option value="白">白</option>
-            <option value="小夜">小夜</option>
-            <option value="夜">夜</option>
-        </select></td>
-        <td><select>
-            <option value="休">休</option>
-            <option value="白">白</option>
-            <option value="小夜">小夜</option>
-            <option value="夜">夜</option>
-        </select></td>
-        <td><input type="text"></td>
-    </tr>
-    <tr>
-        <td>N2</td>
-        <td>曲佳</td>
-        <td>
-            <select>
-                <option value="休">休</option>
-                <option value="白">白</option>
-                <option value="小夜">小夜</option>
-                <option value="夜">夜</option>
-            </select>
-        </td>
-        <td><select>
-            <option value="休">休</option>
-            <option value="白">白</option>
-            <option value="小夜">小夜</option>
-            <option value="夜">夜</option>
-        </select></td>
-        <td><select>
-            <option value="休">休</option>
-            <option value="白">白</option>
-            <option value="小夜">小夜</option>
-            <option value="夜">夜</option>
-        </select></td>
-        <td><select>
-            <option value="休">休</option>
-            <option value="白">白</option>
-            <option value="小夜">小夜</option>
-            <option value="夜">夜</option>
-        </select></td>
-        <td><select>
-            <option value="休">休</option>
-            <option value="白">白</option>
-            <option value="小夜">小夜</option>
-            <option value="夜">夜</option>
-        </select></td>
-        <td><select>
-            <option value="休">休</option>
-            <option value="白">白</option>
-            <option value="小夜">小夜</option>
-            <option value="夜">夜</option>
-        </select></td>
-        <td><select>
-            <option value="休">休</option>
-            <option value="白">白</option>
-            <option value="小夜">小夜</option>
-            <option value="夜">夜</option>
-        </select></td>
-        <td><input type="text"></td>
-    </tr>
+
 </table>
 <div class="panel panel-default">
     <div class="panel-heading">周排班操作</div>
@@ -362,34 +161,7 @@
     </div>
 </div>
 
-<script>
-    $(function(){
-            var url="/aaa";
-            var args={"time":new Date()};
-            $.getJSON(url,args,function(data)
-                {
-                    alert(data.month,data.day,data.week);
-                    var f=0;
-                    var b=0;
-                    for (var i=0,ilt;7;i++){
 
-                        var m=data.week+i;
-                        var s=m+f;
-                        if (s&lt;=7){
-                            $(".message").eq(i).html(data.month,data.day+i,s);
-                        }
-                        if (s&gt;7){
-                            s=s-7;
-                            $(".message").eq(i).html(data.month,data.day+i,s);
-                        }
-
-                    }
-                }
-            );
-            return false;
-        }
-    )
-
-</script>
+<div th:include="include::footer"></div>
 </body>
 </html>

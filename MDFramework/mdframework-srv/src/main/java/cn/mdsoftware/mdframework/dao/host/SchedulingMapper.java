@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 @Mapper
 public interface SchedulingMapper {
-    @Select("select * from HR_PAIBAN_DICT_HLB")
+    @Select("select * from HR_PAIBAN_DICT_HLB ORDER BY XH")
     List<SchedulingDO> findAll();
 
     @Select("select * from HR_PAIBAN_DICT_HLB where xh=#{xh}")
