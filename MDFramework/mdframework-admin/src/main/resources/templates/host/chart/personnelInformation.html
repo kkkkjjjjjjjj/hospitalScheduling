@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content animated fadeInRight">
+		<div class="col-sm-12">
+			<div class="form-horizontal">
+				<div id="operateArea" role="group" >
+					<div class="form-group col-sm-3">
+						<label class="col-sm-3 control-label ">科室：</label>
+						<div class="col-sm-9">
+							<select class="form-control" id="wardName" >
+								<option th:each="ward:${wardList}" th:value="${ward}" th:text="${ward}" ></option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="col-sm-3 control-label ">条件：</label>
+						<div class="col-sm-9">
+							<select class="form-control" id="condition" >
+                                <option value="0">条件</option>
+                                <option value="zhicheng">职称</option>
+                                <option value="xueli">学历</option>
+							</select>
+						</div>
+					</div>
+                    <button class="btn btn-success" onclick="reLoad()">统计</button>
+                    <div class="col-sm-12">
+                        <div class="col-sm-4">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">统计数据</div>
+                                <div class="ibox-content">
+                                    <table id="exampleTable" data-mobile-responsive="true">
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div th:include="include :: footer"></div>
+    <script type="text/javascript" src="/host/chart/personnelInformation.js"></script>
+</body>
+</html>
