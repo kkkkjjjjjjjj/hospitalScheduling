@@ -1,7 +1,7 @@
 package cn.mdsoftware.mdframework.controller.host;
 
-import cn.mdsoftware.mdframework.bean.entity.host.TodayBaseInfoDO;
 import cn.mdsoftware.mdframework.bean.entity.host.TodayInfoDO;
+import cn.mdsoftware.mdframework.service.host.TodayBaseInfoService;
 import cn.mdsoftware.mdframework.service.host.TodayInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +13,8 @@ import java.util.List;
 @RequestMapping("/BasicInformation")
 //人员基本信息
 public class BasicInformationController {
+    @Autowired
+    TodayBaseInfoService todayBaseInfoService;
 
     @Autowired
     TodayInfoService todayInfoService;
@@ -27,7 +29,7 @@ public class BasicInformationController {
      * 修改
      */
     @RequestMapping("/edit")
-    public String up(TodayBaseInfoDO todayBaseInfoDO, TodayInfoDO todayInfoDO){
+    public String up(TodayInfoDO todayInfoDO){
         todayInfoService.up(todayInfoDO);
         return "redirect:host/nurseinfo/BasicInformation";
     }
@@ -36,9 +38,11 @@ public class BasicInformationController {
      */
 
     @RequestMapping("/ed")
-    public String find(String id,Model m){
+    public String find(String id,Model model){
+       // TodayBaseInfoDO todayBaseInfoDO=todayBaseInfoService.findById(id);
         TodayInfoDO todayInfoDO=todayInfoService.findById(id);
-        m.addAttribute("todayInfoDO",todayInfoDO);
+        //m.addAttribute("todayBaseInfoDO",todayBaseInfoDO);
+        model.addAttribute("todayInfoDO",todayInfoDO);
         return "host/nurseinfo/edit";
     }
 }

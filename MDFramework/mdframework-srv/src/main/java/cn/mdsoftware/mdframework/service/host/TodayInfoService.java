@@ -1,7 +1,6 @@
 package cn.mdsoftware.mdframework.service.host;
 
 import cn.mdsoftware.mdframework.bean.entity.host.TodayInfoDO;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

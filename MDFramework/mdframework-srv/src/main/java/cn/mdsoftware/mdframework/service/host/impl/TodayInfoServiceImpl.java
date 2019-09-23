@@ -22,6 +22,8 @@ public class TodayInfoServiceImpl implements TodayInfoService {
         return todayInfoMapper.findById(id);
     }
 
+
+
     @Override
     public int up(TodayInfoDO todayInfoDO) {
         return todayInfoMapper.up(todayInfoDO);

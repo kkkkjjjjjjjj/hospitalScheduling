@@ -3,20 +3,34 @@
 <head>
     <title>Title</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script type="text/javascript" src="http://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
     <style>
         *{
             margin: 0;
             padding: 0;
         }
+        table tr,td{
+            border: 1px solid #b4dbed;
+            font-size: 16px;
+        }
+        br{
+            display: none;
+        }
     </style>
 </head>
 <body>
 <div>
-  <table>
+    <table>
         <tr>
-            <td><button><span>工号</span></button></td>
-            <td><button><span>姓名</span></button></td>
-            <td><button>操作</button></td>
+            <td><button style="width: 100%"><span>工号</span></button></td>
+            <td><button style="width: 100%"><span>姓名</span></button></td>
+            <td><button style="width: 100%">操作</button></td>
         </tr>
         <br/>
         <tr th:each="today:${todayInfoDOList}">
@@ -27,7 +41,7 @@
             </td>
             <br/>
         </tr>
-  </table>
+    </table>
 </div>
 
 <div th:include="include::footer"></div>

@@ -9,7 +9,9 @@ public interface WardService {
     List<WardDO> findAll();
 
 
-    int up(WardDO paibanRenYuanDO);
+    int up(WardDO wardDO);
+
+    WardDO findById(String userName);
 
 
     int del(Integer userName);

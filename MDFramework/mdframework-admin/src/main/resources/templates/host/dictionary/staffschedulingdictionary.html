@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head       >
+<head>
     <title>Title</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script type="text/javascript" src="http://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
     <style>
         *{
             margin: 0;
@@ -16,6 +23,9 @@
         }
         tr td{
             border: 1px deepskyblue solid
+        }
+        body {
+            padding-bottom: 15%;
         }
     </style>
 </head>
@@ -44,7 +54,7 @@
                             <td><div class="da"><span th:text="${scheduling.shijian}"></span></div></td>
                             <td><div class="da"><span th:text="${scheduling.startTime}"></span></div></td>
                             <td><div class="da"><span th:text="${scheduling.endtime}"></span></div></td>
-                            <td><div class="da"><a th:href="@{/del(id=${scheduling.xh})}">删除</a></span></div></td>
+                            <td><div class="da"><a th:href="@{/del(xh=${scheduling.xh})}">删除</a></span></div></td>
                         </tr>
                     </table>
                 </div>
@@ -60,13 +70,13 @@
                             <td><div class="da">序号</div></td>
                             <td><div class="da">简称</div></td>
                             <td><div class="da">详细描述</div></td>
-                            <td><div class="da">删除</div></td>
+                            <td><div class="da">操作</div></td>
                         </tr>
                         <tr th:each="scheduling:${schedulingDOS}">
                             <td><div class="da"><span th:text="${scheduling.xh}"></span></div></td>
                             <td><div class="da"><span th:text="${scheduling.jc}"></span></div></td>
                             <td><div class="da"><span th:text="${scheduling.xx}"></span></div></td>
-                            <td><div class="da"><a th:href="@{/del(id=${scheduling.xh})}" style="color: white">删除</a></span></div></td>
+                            <td><div class="da"><a th:href="@{/del(xh=${scheduling.xh})}">删除</a></span></div></td>
                         </tr>
                     </table>
                 </div>
@@ -80,7 +90,6 @@
                         <button style="font-size: 16px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
                             <a th:href="@{/StaffSchedulingDictionary/Jump}" style="color: white">添加</a>
                         </button>
-                        <button style="font-size: 16px" type="button"class="btn btn-primary btn-lg" >保存</button>
                         <button style="font-size: 16px" type="button"class="btn btn-primary btn-lg" >排班参数设置</button>
                     </div>
                 </div>
@@ -95,7 +104,6 @@
                             <option value="感染疾病病区" style="font-size: 16px">感染疾病病区</option>
                         </select>
                         <button style="font-size: 16px" type="button"class="btn btn-primary btn-lg">刷新</button>
-                        <button style="font-size: 16px" type="button"class="btn btn-primary btn-lg">删除</button>
                         <button style="font-size: 16px" type="button"class="btn btn-primary btn-lg">保存</button>
                     </div>
                 </div>
@@ -111,44 +119,43 @@
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog row" role="document">
         <div class="modal-content" style="font-size: 24px;">
+            <form action="/StaffSchedulingDictionary/add">
+            <table>
             <tr>
                 <td>序号： </td>
-                <td><input type="text" value="xuhao"></td>
+                <td><input type="text" name="xuhao"></td>
             </tr>
             <br/>
             <tr>
                 <td>简称： </td>
-                <td><input type="text" value="jiancheng"></td>
+                <td><input type="text" name="jiancheng"></td>
             </tr>
-            <br/>
             <tr>
                 <td>详细描述： </td>
-                <td><input type="text" value="miaoshu"></td>
+                <td><input type="text" name="miaoshu"></td>
             </tr>
-            <br/>
             <tr>
                 <td>时长： </td>
-                <td><input type="text" value="time"></td>
+                <td><input type="text" name="time"></td>
             </tr>
-            <br/>
             <tr>
                 <td>开始时间： </td>
-                <td><input type="text" value="starttime"></td>
+                <td><input type="text" name="starttime"></td>
             </tr>
-            <br/>
             <tr>
                 <td>结束时间： </td>
-                <td><input type="text" value="endtime"></td>
+                <td><input type="text" name="endtime"></td>
             </tr>
-            <br/>
+            </table>
+
             <div class="modal-footer">
-                <button type="button" class="btn btn-default">添加</button>
+                <button type="submit" class="btn btn-default">添加</button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal">取消 </button>
             </div>
+            </form>
         </div>
     </div>
 </div>
-
 <div th:include="include::footer"></div>
 
 </body>

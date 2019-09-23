@@ -1,67 +1,45 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Title</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        table td{
-            border: 1px #b3d4fd solid;
-        }
-        table td button{
-            width: 100%;
-            height: 100%;
-        }
-
-        .panel-body{
-            font-size: 18px;
-        }
-        tr:first-child{
-            background-color: #cccccc;
-            font-size: 24px;
-        }button
-    </style>
+<head th:include="include :: header">
 </head>
-<body>
 
-<div class="panel panel-primary">
-    <div class="panel-heading">HIS中的本病区人员信息</div>
-    <div class="panel-body">
-        <table>
-            <tr>
-                <td><button>工号</button></td>
-                <td><button>姓名</button></td>
-            </tr>
-
-            <tr th:each="wardDO:${wardDOList}">
-                <td><span th:text="${wardDO.userName}"></span></td>
-                <td><span th:text="${wardDO.name}"></span></td>
-            </tr>
-        </table>
+<body style=" padding-bottom: 15%;">
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-primary">
+        <div class="panel-heading">HIS中的本病区人员信息</div>
+        <div class="panel-body" style="font-size: 18px;">
+            <table id="exampleTable" data-mobile-responsive="true">
+            </table>
+        </div>
+    </div>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">本病区人员信息</div>
+            <div class="panel-body"  style="font-size: 18px;">
+                <table style="text-align: center">
+                    <tr>
+                        <td><button>序号</button></td>
+                        <td><button>工号</button></td>
+                        <td><button>姓名</button></td>
+                    </tr>
+                    <tr th:each="ward:${wardDOList}">
+                        <td><span th:text="${ward.xh}"></span></td>
+                        <td><span th:text="${ward.userName}"></span></td>
+                        <td><span th:text="${ward.name}"></span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
-<div class="panel panel-primary">
-    <div class="panel-heading">本病区人员信息</div>
-    <div class="panel-body">
-        <table style="text-align: center">
-            <tr>
-                <td><button>序号</button></td>
-                <td><button>工号</button></td>
-                <td><button>姓名</button></td>
-            </tr>
-            <tr th:each="ward:${wardDOList}">
-                <td><span th:text="${ward.xh}"></span></td>
-                <td><span th:text="${ward.userName}"></span></td>
-                <td><span th:text="${ward.name}"></span></td>
-            </tr>
-        </table>
-    </div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="panel panel-primary">
         <div class="panel-heading">病区操作  &emsp;无工号人员请填写“无工号01”,“无工号01”，依次类推，不要重复</div>
-        <div class="panel-body">
+        <div class="panel-body" style="font-size: 18px;">
             <div class="row" style="font-size: 16px">
                 <div class="col-md-2">
                     病区 <select name="" id=""  style="height: 50px;width: 160px">
@@ -86,8 +64,7 @@
             </div>
         </div>
     </div>
-</div>
-
+</nav>
 
 
 

@@ -30,12 +30,12 @@ public class StaffSchedulingDictionaryController {
     @RequestMapping("/add")
     public String add(SchedulingDO schedulingDO){
         schedulingService.add(schedulingDO);
-        return "redirect:StaffSchedulingDictionary";
+        return "redirect:host/dictionary/StaffSchedulingDictionary";
     }
     @RequestMapping("/del")
     public String de(SchedulingDO host){
         schedulingService.del(host.getXh());
-        return "redirect:StaffSchedulingDictionary";
+        return "redirect:host/dictionary/StaffSchedulingDictionary";
     }
 
 

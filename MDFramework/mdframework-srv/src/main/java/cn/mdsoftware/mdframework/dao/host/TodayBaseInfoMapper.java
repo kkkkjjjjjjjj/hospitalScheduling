@@ -12,12 +12,12 @@ public interface TodayBaseInfoMapper {
     @Select("select * from hr_today_baseinfo")
     List<TodayBaseInfoDO> findAll();
 
-    @Select("select * from Hrtodaybaseinfo where gonghao=#{gonghao}")
-    TodayBaseInfoDO findById(String gonghao);
+    @Select("select * from hr_today_baseinfo where gonghao=#{id}")
+    TodayBaseInfoDO findById(String id);
 
-    @Update("update Hrtodaybaseinfo set gonghao=#{gongHao},name=#{name},sex=#{sex}," +
+    @Update("update hr_today_baseinfo set gonghao=#{gongHao},name=#{name},sex=#{sex}," +
             "height=#{height},natton=#{natton},class=#{claezez},birthday=#{birthday}," +
-            "mianmao=#{mianMao},job=#{Job},job_date=#{jobDate},shenfen=#{shenFen}," +
+            "mianmao=#{mianMao},job=#{Job},job_date=#{jobDate},sh   enfen=#{shenFen}," +
             "js_type=#{jsDate},js_date=#{js_date},job_no=#{job_no},work_date=#{workDate}," +
             "in_date=#{inDate},out_date=#{outDate},hunyin=#{hunYin},yunqing=#{yunQing}," +
             "tel=#{tel},jiguan=#{jiguan},job_sx=#{job_sx},tijiao=#{tijiao}," +
@@ -26,6 +26,6 @@ public interface TodayBaseInfoMapper {
             "zhaopian=#{zhaoPian},xuehui=#{xueHui},zhuanke=#{zhuanKe} where id=#{id}")
     int up(TodayBaseInfoDO todayBaseInfoDO);
 
-    @Insert("insert into Hrtodaybaseinfo (student,score) values (#{student},#{score})")
+    @Insert("insert into hr_today_baseinfo (student,score) values (#{student},#{score})")
     public int add(TodayBaseInfoDO todayBaseInfoDO);
 }

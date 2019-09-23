@@ -26,6 +26,12 @@ public class WardServiceImpl implements WardService {
     }
 
     @Override
+    public WardDO findById(String userName) {
+        return wardMapper.findById(userName);
+    }
+
+
+    @Override
     public int del(Integer userName) {
         return wardMapper.del(userName);
     }

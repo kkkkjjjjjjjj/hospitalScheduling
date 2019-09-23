@@ -12,8 +12,8 @@ public interface TodayInfoMapper {
     @Select("select * from hr_today_info where rownum<=10")
     List<TodayInfoDO> findAll();
 
-    @Select("select * from hr_today_info where gonghao=#{gonghao}")
-    TodayInfoDO findById(String gonghao);
+    @Select("select * from hr_today_info where id=#{id}")
+    TodayInfoDO findById(String id);
 
 
     @Update("update hr_today_info set name=#{name},by_date=#{by_date},zhuanye=#{zhuanye}," +
