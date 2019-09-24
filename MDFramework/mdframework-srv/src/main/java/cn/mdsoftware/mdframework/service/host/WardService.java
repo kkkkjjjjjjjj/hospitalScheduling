@@ -3,11 +3,11 @@ package cn.mdsoftware.mdframework.service.host;
 import cn.mdsoftware.mdframework.bean.entity.host.WardDO;
 
 import java.util.List;
+import java.util.Map;
 
 public interface WardService {
-
-    List<WardDO> findAll();
-
+    List<WardDO> list(Map<String, Object> map);
+    int count(Map<String,Object> map);
 
     int up(WardDO wardDO);
 

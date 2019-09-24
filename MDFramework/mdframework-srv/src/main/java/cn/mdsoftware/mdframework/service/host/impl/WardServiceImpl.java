@@ -7,18 +7,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class WardServiceImpl implements WardService {
     @Autowired
     WardMapper wardMapper;
 
+
     @Override
-    public List<WardDO> findAll() {
-        return wardMapper.findAll();
+    public List<WardDO> list(Map<String, Object> map) {
+        return wardMapper.list(map);
     }
 
-
+    @Override
+    public int count(Map<String, Object> map) {
+        return wardMapper.count(map);
+    }
 
     @Override
     public int up(WardDO wardDO) {
