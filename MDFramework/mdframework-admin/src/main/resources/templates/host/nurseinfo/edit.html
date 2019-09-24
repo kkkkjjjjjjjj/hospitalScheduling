@@ -18,37 +18,43 @@
 <body>
 
 <form action="/edit">
-    <div>
-        <div class="row">
-            <div class="col-md-4">
-                <label class="col-sm-3 control-label">工号：</label>
-                <input type="text"th:value="${todayInfoDO.name}">
+    <div class="form-horizontal">
+        <div class="form-group col-sm-4">
+            <label class="col-sm-4 control-label ">工号：</label>
+            <div class="col-sm-8">
+                <input type="text" th:value="${todayInfoDO.name}"  class="form-control">
             </div>
-            <div class="col-md-4">
-                <label class="col-sm-3 control-label">姓名：</label>
-                <input type="text"th:value="${todayInfoDO.name}">
-            </div>
-            <div class="col-md-4">
-                <label class="col-sm-3 control-label">性别：</label>
-                <input type="text"th:value="${todayInfoDO.name}">
-            </div>
-
         </div>
-        <br/>
-        <div class="row">
-            <div class="col-md-4">
-                <label class="col-sm-3 control-label">层级：</label>
-                <input type="text"th:value="${todayInfoDO.name}">
+        <div class="form-group col-sm-4">
+            <label class="col-sm-4 control-label ">姓名：</label>
+            <div class="col-sm-8">
+                <input type="text"th:value="${todayInfoDO.name}" class="form-control">
             </div>
-            <div class="col-md-4">
-                <label class="col-sm-3 control-label">民族：</label>
-                <input type="text"th:value="${todayInfoDO.name}">
+        </div>
+        <div class="form-group col-sm-4">
+            <label class="col-sm-4 control-label ">性别：</label>
+            <div class="col-sm-8">
+                <input type="text"th:value="${todayInfoDO.name}" class="form-control">
             </div>
-            <div class="col-md-4">
-                <label class="col-sm-3 control-label">身高：</label>
-                <input type="text"th:value="${todayInfoDO.name}">
+        </div>
+        <div class="form-group col-sm-4">
+            <label class="col-sm-4 control-label ">层级：</label>
+            <div class="col-sm-8">
+                <input type="text"th:value="${todayInfoDO.name}" class="form-control">
             </div>
-        </div><br/>
+        </div>
+        <div class="form-group col-sm-4">
+            <label class="col-sm-4 control-label ">民族：</label>
+            <div class="col-sm-8">
+                <input type="text"th:value="${todayInfoDO.name}" class="form-control">
+            </div>
+        </div>
+        <div class="form-group col-sm-4">
+            <label class="col-sm-4 control-label ">身高：</label>
+            <div class="col-sm-8">
+                <input type="text"th:value="${todayInfoDO.name}" class="form-control">
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-4">
                 <label class="col-sm-3 control-label">身份证号：</label>

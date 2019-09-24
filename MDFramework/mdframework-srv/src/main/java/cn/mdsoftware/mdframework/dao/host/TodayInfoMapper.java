@@ -7,10 +7,15 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
+import java.util.Map;
+
 @Mapper
 public interface TodayInfoMapper {
-    @Select("select * from hr_today_info where rownum<=10")
-    List<TodayInfoDO> findAll();
+    @Select("select * from hr_today_info ")
+    List<TodayInfoDO> findAll(Map<String, Object> map);
+
+    @Select("select count(1) from hr_today_info ")
+    Integer count(Map<String, Object> map);
 
     @Select("select * from hr_today_info where id=#{id}")
     TodayInfoDO findById(String id);
