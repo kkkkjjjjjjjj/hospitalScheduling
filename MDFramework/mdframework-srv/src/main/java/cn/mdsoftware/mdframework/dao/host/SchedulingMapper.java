@@ -7,10 +7,20 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
+import java.util.Map;
+
 @Mapper
 public interface SchedulingMapper {
-    @Select("select * from HR_PAIBAN_DICT_HLB ORDER BY XH")
-    List<SchedulingDO> findAll();
+    @Select("<script>" +
+            "select * from HR_PAIBAN_DICT_HLB ORDER BY XH" +
+            "<if test=\"offset != null and limit != null\">"+
+            "limit #{offset}, #{limit}" +
+            "</if>"+
+            "</script>")
+    List<SchedulingDO> list(Map<String,Object> param);
+
+    @Select("select count(*) from HR_PAIBAN_DICT_HLB ")
+    int count(Map<String,Object> map);
 
     @Select("select * from HR_PAIBAN_DICT_HLB where xh=#{xh}")
     SchedulingDO findById(String xh);

@@ -7,6 +7,6 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 @Mapper
 public interface SchedlMapper {
-    @Select("select * from HR_PAIBAN_RENYUAN ORDER BY XH")
+    @Select("select * from HR_PAIBAN_RENYUAN ")
     List<Schedul> findAll();
 }

@@ -17,15 +17,14 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/ward")
-
 //病区
 public class WardController {
 
     @Autowired
     WardService wardService;
 
-    @RequestMapping("/ward")
-    public String find(Model model){
+    @GetMapping("/ward")
+    String find(Model model) {
         return "host/ward/ward";
     }
 
@@ -34,16 +33,10 @@ public class WardController {
     PageUtils list(@RequestParam Map<String, Object> params) {
         // 查询列表数据
         Query query = new Query(params);
-        List<WardDO> sysUserList = wardService.list(query);
+        List<WardDO> wardDOList = wardService.list(query);
         int total = wardService.count(query);
-        PageUtils pageUtil = new PageUtils(sysUserList, total);
+        PageUtils pageUtil = new PageUtils(wardDOList, total);
         return pageUtil;
     }
-
-
-
-
-
-
 
 }

@@ -1,17 +1,17 @@
 package cn.mdsoftware.mdframework.service.host;
 
 import cn.mdsoftware.mdframework.bean.entity.host.SchedulingDO;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 public interface SchedulingService {
-    List<SchedulingDO> findAll();
+    List<SchedulingDO> list(Map<String,Object> param);
 
 
     SchedulingDO findById(String xh);
 
-
+    int count(Map<String,Object> map);
 
     int add(SchedulingDO hpb);
 

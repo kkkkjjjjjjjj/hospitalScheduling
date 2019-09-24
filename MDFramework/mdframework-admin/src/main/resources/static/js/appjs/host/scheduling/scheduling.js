@@ -1,4 +1,4 @@
-var prefix = "/StaffSchedulingDictionary"
+var prefix = "/schedul"
 $(function() {
     load();
     lobd();
@@ -39,39 +39,56 @@ function load() {
                 },
                 columns : [
                     {
-                        title : '序号',
-                        field : 'xh',
+                        title : '层级 ',
+                        field : 'userName',
                     },
                     {
-                        title : '简称',
-                        field : 'jc',
+                        title : '姓名',
+                        field : 'name',
                     },
                     {
-                        title : '详细描述',
-                        field : 'xx',
+                        title : '姓名',
+                        field : 'name',
                     },
                     {
-                        title : '时长（小时）',
-                        field : 'shijian',
+                        title : '姓名',
+                        field : 'name',
                     },
                     {
-                        title : '开始时间',
-                        field : 'startTime',
+                        title : '姓名',
+                        field : 'name',
                     },
                     {
-                        title : '结束时间',
-                        field : 'endtime',
+                        title : '姓名',
+                        field : 'name',
+                    }, {
+                        title : '姓名',
+                        field : 'name',
                     },
+                    {
+                        title : '姓名',
+                        field : 'name',
+                    },
+                    {
+                        title : '姓名',
+                        field : 'name',
+                    },
+                    {
+                        title : '备注',
+                        field : 'name',
+                    },
+
+
                     {
                         title : '操作',
                         field : 'id',
                         align : 'center',
                         formatter : function(value, row, index) {
                             var e = '<a class="btn btn-primary btn-sm " href="#" mce_href="#" title="编辑" onclick="edit(\''
-                                + row.xh
+                                + row.userName
                                 + '\')"><i class="fa fa-edit"></i></a> ';
                             var d = '<a class="btn btn-warning btn-sm " href="#" title="删除"  mce_href="#" onclick="remove(\''
-                                + row.xh
+                                + row.userName
                                 + '\')"><i class="fa fa-remove"></i></a> ';
                             return e + d;
                         }
@@ -117,12 +134,16 @@ function lobd() {
                         field : 'xh',
                     },
                     {
-                        title : '简称',
-                        field : 'jc',
+                        title : '工号',
+                        field : 'userName',
                     },
                     {
-                        title : '详细描述',
-                        field : 'xx',
+                        title : '姓名',
+                        field : 'name',
+                    },
+                    {
+                        title : '组',
+                        field : 'zu',
                     },
                     {
                         title : '操作',

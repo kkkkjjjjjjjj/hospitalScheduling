@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class SchedulingServiceImpl implements SchedulingService {
@@ -15,13 +16,18 @@ public class SchedulingServiceImpl implements SchedulingService {
 
 
     @Override
-    public List<SchedulingDO> findAll() {
-        return schedulingMapper.findAll();
+    public List<SchedulingDO> list(Map<String, Object> param) {
+        return schedulingMapper.list(param);
     }
 
     @Override
     public SchedulingDO findById(String xh) {
         return schedulingMapper.findById(xh);
+    }
+
+    @Override
+    public int count(Map<String, Object> map) {
+        return schedulingMapper.count(map);
     }
 
     @Override
