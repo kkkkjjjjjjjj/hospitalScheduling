@@ -1,7 +1,7 @@
 package cn.mdsoftware.mdframework.bean.entity.host;
 //病区人员排序
 public class WardDO {
-
+    private static final long serialVersionUID = 1L;
     private Integer xh;         //对应数据库xh     序号
     private String userName;    //对应数据库user_name  工号
     private String name;        //对应数据库name   姓名

@@ -4,7 +4,6 @@ import cn.mdsoftware.mdframework.bean.entity.host.Day;
 import cn.mdsoftware.mdframework.bean.entity.host.SchedulingDO;
 import cn.mdsoftware.mdframework.common.utils.PageUtils;
 import cn.mdsoftware.mdframework.common.utils.Query;
-import cn.mdsoftware.mdframework.service.host.SchedlService;
 import cn.mdsoftware.mdframework.service.host.SchedulingService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +29,6 @@ import java.util.Map;
 public class SchedulingController {
     @Autowired
     SchedulingService schedulingService;
-    @Autowired
-    SchedlService schedlService;
     //查询所有
     @GetMapping("/schedul")
     String find(Model model) {

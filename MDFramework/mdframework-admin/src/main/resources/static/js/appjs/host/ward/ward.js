@@ -131,3 +131,14 @@ function lobd() {
 function reLoad() {
     $('#exampleTable').bootstrapTable('refresh');
 }
+
+function edit(userName) {
+    layer.open({
+        type : 2,
+        title : '用户修改',
+        maxmin : true,
+        shadeClose : true, // 点击遮罩关闭层
+        area : [ '800px', '520px' ],
+        content : prefix + '/edit/' + userName // iframe的url
+    });
+}

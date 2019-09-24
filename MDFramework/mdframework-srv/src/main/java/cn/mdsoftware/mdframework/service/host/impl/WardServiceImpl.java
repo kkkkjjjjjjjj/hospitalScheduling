@@ -26,8 +26,9 @@ public class WardServiceImpl implements WardService {
     }
 
     @Override
-    public int up(WardDO wardDO) {
-        return wardMapper.up(wardDO);
+    public int update(WardDO wardDO) {
+        int r = wardMapper.update(wardDO);
+        return r;
     }
 
     @Override

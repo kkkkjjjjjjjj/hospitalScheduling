@@ -23,7 +23,8 @@ public interface WardMapper {
     int count(Map<String,Object> map);
 
     @Update("update HR_PAIBAN_RENYUAN set xh=#{xh},user_name=#{userName},where user_name=#{userName}")
-    int up(WardDO wardDO);
+    int update(WardDO wardDO);
+
 
     @Select("select * from HR_PAIBAN_RENYUAN where user_name=#{userName}")
     WardDO findById(String userName);

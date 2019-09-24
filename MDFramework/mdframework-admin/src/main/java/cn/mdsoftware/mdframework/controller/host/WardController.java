@@ -1,16 +1,15 @@
 package cn.mdsoftware.mdframework.controller.host;
 
 import cn.mdsoftware.mdframework.bean.entity.host.WardDO;
+import cn.mdsoftware.mdframework.common.annotation.Log;
 import cn.mdsoftware.mdframework.common.utils.PageUtils;
 import cn.mdsoftware.mdframework.common.utils.Query;
+import cn.mdsoftware.mdframework.common.utils.R;
 import cn.mdsoftware.mdframework.service.host.WardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -37,6 +36,24 @@ public class WardController {
         int total = wardService.count(query);
         PageUtils pageUtil = new PageUtils(wardDOList, total);
         return pageUtil;
+    }
+
+    @GetMapping("/edit/{userName}")
+    String edit(Model model, @PathVariable("userName") String userName) {
+        WardDO userDO = wardService.findById(userName);
+        model.addAttribute("menu",userDO);
+        return "host/ward/edit";
+    }
+
+    @Log("更新用户")
+    @PostMapping("/update")
+    @ResponseBody
+    R update(WardDO user) {
+        // return R.error(1, "演示系统不允许修改");
+        if (wardService.update(user) > 0) {
+            return R.ok();
+        }
+        return R.error();
     }
 
 }

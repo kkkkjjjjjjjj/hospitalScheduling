@@ -9,7 +9,7 @@ public interface WardService {
     List<WardDO> list(Map<String, Object> map);
     int count(Map<String,Object> map);
 
-    int up(WardDO wardDO);
+    int update(WardDO wardDO);
 
     WardDO findById(String userName);
 
