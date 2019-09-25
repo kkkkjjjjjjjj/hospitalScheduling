@@ -38,6 +38,9 @@ public class WardController {
         return pageUtil;
     }
 
+    /**
+     * 修改
+     */
     @GetMapping("/edit/{userName}")
     String edit(Model model, @PathVariable("userName") String userName) {
         WardDO userDO = wardService.findById(userName);
@@ -48,9 +51,42 @@ public class WardController {
     @Log("更新用户")
     @PostMapping("/update")
     @ResponseBody
-    R update(WardDO user) {
-        // return R.error(1, "演示系统不允许修改");
-        if (wardService.update(user) > 0) {
+    R update(WardDO ward) {
+        int i = wardService.update(ward);
+        if (i > 0) {
+            return R.ok();
+        }
+        return R.error();
+    }
+    @Log("删除用户")
+    @RequestMapping("/del")
+    @ResponseBody
+    R del(WardDO wardDO){
+        int i = wardService.del(wardDO.getUserName());
+        if (i > 0) {
+            return R.ok();
+        }
+        return R.error();
+    }
+
+    @GetMapping("/add")
+    String add(){
+        return "host/ward/add";
+    }
+
+
+    @PostMapping("/exit")
+    @ResponseBody
+    boolean exit(@RequestParam Map<String, Object> params) {
+        // Query query = new Query(params);
+        return !wardService.exit(params);// 存在，不通过，false
+    }
+
+    @Log("保存用户")
+    @PostMapping("/save")
+    @ResponseBody
+    R save(WardDO wardDO) {
+        if (wardService.save(wardDO) > 0) {
             return R.ok();
         }
         return R.error();

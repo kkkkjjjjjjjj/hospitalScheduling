@@ -27,8 +27,15 @@ public class WardServiceImpl implements WardService {
 
     @Override
     public int update(WardDO wardDO) {
-        int r = wardMapper.update(wardDO);
+        int r=wardMapper.update(wardDO);
         return r;
+    }
+
+    @Override
+    public boolean exit(Map<String, Object> params) {
+        boolean exit;
+        exit = wardMapper.list(params).size() > 0;
+        return exit;
     }
 
     @Override
@@ -36,9 +43,14 @@ public class WardServiceImpl implements WardService {
         return wardMapper.findById(userName);
     }
 
+    @Override
+    public int save(WardDO wardDO) {
+        return wardMapper.save(wardDO);
+    }
+
 
     @Override
-    public int del(Integer userName) {
+    public int del(String userName) {
         return wardMapper.del(userName);
     }
 }

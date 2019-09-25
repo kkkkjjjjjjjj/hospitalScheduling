@@ -13,7 +13,7 @@ function update() {
     $.ajax({
         cache : true,
         type : "POST",
-        url : "/ward/update",
+        url : "/BasicInformation/update",
         data : $('#signupForm').serialize(),// 你的formid
         async : false,
         error : function(request) {
@@ -40,16 +40,10 @@ function validateRule() {
     var icon = "<i class='fa fa-times-circle'></i> ";
     $("#signupForm").validate({
         rules : {
-            name : {
+            id : {
                 required : true
             },
-            userName : {
-                required : true,
-            },
-            xh : {
-                required : true,
-            },
-            zu : {
+            name : {
                 required : true,
             },
             agree : "required"

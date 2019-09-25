@@ -18,8 +18,8 @@ public class TodayBaseInfoServiceImpl implements TodayBaseInfoService {
     }
 
     @Override
-    public TodayBaseInfoDO findById(String id) {
-        return todayBaseInfoMapper.findById(id);
+    public TodayBaseInfoDO findById(String gonghao) {
+        return todayBaseInfoMapper.findById(gonghao);
     }
 
     @Override

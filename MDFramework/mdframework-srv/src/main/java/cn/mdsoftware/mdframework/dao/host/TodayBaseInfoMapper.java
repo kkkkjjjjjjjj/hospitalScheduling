@@ -12,8 +12,8 @@ public interface TodayBaseInfoMapper {
     @Select("select * from hr_today_baseinfo")
     List<TodayBaseInfoDO> findAll();
 
-    @Select("select * from hr_today_baseinfo where gonghao=#{id}")
-    TodayBaseInfoDO findById(String id);
+    @Select("select * from hr_today_baseinfo where gonghao=#{gonghao}")
+    TodayBaseInfoDO findById(String gonghao);
 
     @Update("update hr_today_baseinfo set gonghao=#{gongHao},name=#{name},sex=#{sex}," +
             "height=#{height},natton=#{natton},class=#{claezez},birthday=#{birthday}," +

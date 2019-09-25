@@ -1,56 +1,61 @@
-
 $().ready(function() {
     validateRule();
+
     // $("#signupForm").validate();
 });
 
 $.validator.setDefaults({
     submitHandler : function() {
-        update();
+        save();
     }
 });
-function update() {
+
+function save() {
     $.ajax({
         cache : true,
         type : "POST",
-        url : "/ward/update",
+        url : "/StaffSchedulingDictionary/save",
         data : $('#signupForm').serialize(),// 你的formid
         async : false,
         error : function(request) {
-            alert("Connection error");
+            parent.layer.alert("Connection error");
         },
         success : function(data) {
             if (data.code == 0) {
-                parent.layer.msg(data.msg);
+                parent.layer.msg("操作成功");
                 parent.reLoad();
                 var index = parent.layer.getFrameIndex(window.name); // 获取窗口索引
                 parent.layer.close(index);
+
             } else {
-                parent.layer.msg(data.msg);
+                parent.layer.alert(data.msg)
             }
+
         }
     });
 
 }
-
-/**
- * 校验规格对应input标签的name属性
- */
 function validateRule() {
     var icon = "<i class='fa fa-times-circle'></i> ";
     $("#signupForm").validate({
         rules : {
-            name : {
+            xh : {
                 required : true
             },
-            userName : {
+            jc : {
+                required : true
+            },
+            xx : {
                 required : true,
             },
-            xh : {
-                required : true,
+            shijian : {
+                required : true
             },
-            zu : {
-                required : true,
+            startTime : {
+                required : false
+            },
+            endtime : {
+                required : false
             },
             agree : "required"
         },

@@ -67,13 +67,10 @@ function load() {
                         field : 'id',
                         align : 'center',
                         formatter : function(value, row, index) {
-                            var e = '<a class="btn btn-primary btn-sm " href="#" mce_href="#" title="编辑" onclick="edit(\''
-                                + row.xh
-                                + '\')"><i class="fa fa-edit"></i></a> ';
                             var d = '<a class="btn btn-warning btn-sm " href="#" title="删除"  mce_href="#" onclick="remove(\''
                                 + row.xh
                                 + '\')"><i class="fa fa-remove"></i></a> ';
-                            return e + d;
+                            return  d;
                         }
                     } ]
             });
@@ -129,17 +126,47 @@ function lobd() {
                         field : 'id',
                         align : 'center',
                         formatter : function(value, row, index) {
-                            var e = '<a class="btn btn-primary btn-sm " href="#" mce_href="#" title="编辑" onclick="edit(\''
-                                + row.userName
-                                + '\')"><i class="fa fa-edit"></i></a> ';
                             var d = '<a class="btn btn-warning btn-sm " href="#" title="删除"  mce_href="#" onclick="remove(\''
-                                + row.userName
+                                + row.xh
                                 + '\')"><i class="fa fa-remove"></i></a> ';
-                            return e + d;
+                            return  d;
                         }
                     } ]
             });
 }
 function reLoad() {
     $('#exampleTable').bootstrapTable('refresh');
+}
+
+function remove(userName/*对应你controller里需要的那个变量*/) {
+    layer.confirm('确定要删除选中的记录？', {
+        btn : [ '确定', '取消' ]
+    }, function() {
+        $.ajax({
+            url : "/StaffSchedulingDictionary/del",
+            type : "post",
+            data : {
+                'xh' : xh
+            },
+            success : function(r) {
+                if (r.code == 0) {
+                    layer.msg(r.msg);
+                    reLoad();
+                } else {
+                    layer.msg(r.msg);
+                }
+            }
+        });
+    })
+}
+
+function add() {
+    layer.open({
+        type: 2,
+        title: '增加',
+        maxmin: true,
+        shadeClose: false, // 点击遮罩关闭层
+        area: ['800px', '520px'],
+        content: prefix + '/add' // iframe的url
+    });
 }

@@ -1,13 +1,11 @@
 package cn.mdsoftware.mdframework.bean.entity.host;
 
-import java.util.Date;
-
 public class TodayInfoDO {
     private static final long serialVersionUID = 1L;
 
     private String id;                  //对应数据库id     //工号
     private String name;                //对应数据库name   姓名
-    private Date byDate;               //对应数据库byDate  毕业时间
+    private String byDate;               //对应数据库byDate  毕业时间
     private String zhuanYe;             //对应数据库zhuanYe   专业
     private String eduType;            //对应数据库eduType
     private String xueWei;              //对应数据库xueWei  学位
@@ -20,19 +18,52 @@ public class TodayInfoDO {
     private String address;             //对应数据库address  住址
     private String baBy;                //对应数据库baBy
     private String baByType;           //对应数据库baByType
-    private Date baByDate;             //对应数据库baByDate
+    private String baByDate;             //对应数据库baByDate
     private String tiJiao;              //对应数据库tiJiao
-    private Date tiJiaoDate;            //对应数据库tiJiaoDate
+    private String tiJiaoDate;            //对应数据库tiJiaoDate
     private String zTiJiao;             //对应数据库zTiJiao
     private String zGongHao;            //对应数据库zGongHao
-    private Date ziTiJiaoDate;          //对应数据库ziTiJiaoDate
+    private String ziTiJiaoDate;          //对应数据库ziTiJiaoDate
     private String zgxl;                //对应数据库zgxl   最高学历
-    private Date zgbyDate;              //对应数据库zgbyDate  最高学历毕业时间
+    private String zgbyDate;              //对应数据库zgbyDate  最高学历毕业时间
     private String zgbyDaxue;          //对应数据库zgbyDaxue  最高学历大学
     private String zgZhuanYe;           //对应数据库zgZhuanYe   最高学历专业
     private String zgeduType;          //对应数据库zgeduType  最高学历类型
     private String zgXueWei;            //对应数据库zgXueWei  最高学位
 
+
+    @Override
+    public String toString() {
+        return "TodayInfoDO{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", byDate='" + byDate + '\'' +
+                ", zhuanYe='" + zhuanYe + '\'' +
+                ", eduType='" + eduType + '\'' +
+                ", xueWei='" + xueWei + '\'' +
+                ", xueLi='" + xueLi + '\'' +
+                ", jsjLevel='" + jsjLevel + '\'' +
+                ", wyLevel='" + wyLevel + '\'' +
+                ", aiName='" + aiName + '\'' +
+                ", aiTel='" + aiTel + '\'' +
+                ", aiDw='" + aiDw + '\'' +
+                ", address='" + address + '\'' +
+                ", baBy='" + baBy + '\'' +
+                ", baByType='" + baByType + '\'' +
+                ", baByDate='" + baByDate + '\'' +
+                ", tiJiao='" + tiJiao + '\'' +
+                ", tiJiaoDate='" + tiJiaoDate + '\'' +
+                ", zTiJiao='" + zTiJiao + '\'' +
+                ", zGongHao='" + zGongHao + '\'' +
+                ", ziTiJiaoDate='" + ziTiJiaoDate + '\'' +
+                ", zgxl='" + zgxl + '\'' +
+                ", zgbyDate='" + zgbyDate + '\'' +
+                ", zgbyDaxue='" + zgbyDaxue + '\'' +
+                ", zgZhuanYe='" + zgZhuanYe + '\'' +
+                ", zgeduType='" + zgeduType + '\'' +
+                ", zgXueWei='" + zgXueWei + '\'' +
+                '}';
+    }
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -54,11 +85,11 @@ public class TodayInfoDO {
         this.name = name;
     }
 
-    public Date getByDate() {
+    public String getByDate() {
         return byDate;
     }
 
-    public void setByDate(Date byDate) {
+    public void setByDate(String byDate) {
         this.byDate = byDate;
     }
 
@@ -158,11 +189,11 @@ public class TodayInfoDO {
         this.baByType = baByType;
     }
 
-    public Date getBaByDate() {
+    public String getBaByDate() {
         return baByDate;
     }
 
-    public void setBaByDate(Date baByDate) {
+    public void setBaByDate(String baByDate) {
         this.baByDate = baByDate;
     }
 
@@ -174,11 +205,11 @@ public class TodayInfoDO {
         this.tiJiao = tiJiao;
     }
 
-    public Date getTiJiaoDate() {
+    public String getTiJiaoDate() {
         return tiJiaoDate;
     }
 
-    public void setTiJiaoDate(Date tiJiaoDate) {
+    public void setTiJiaoDate(String tiJiaoDate) {
         this.tiJiaoDate = tiJiaoDate;
     }
 
@@ -198,11 +229,11 @@ public class TodayInfoDO {
         this.zGongHao = zGongHao;
     }
 
-    public Date getZiTiJiaoDate() {
+    public String getZiTiJiaoDate() {
         return ziTiJiaoDate;
     }
 
-    public void setZiTiJiaoDate(Date ziTiJiaoDate) {
+    public void setZiTiJiaoDate(String ziTiJiaoDate) {
         this.ziTiJiaoDate = ziTiJiaoDate;
     }
 
@@ -214,11 +245,11 @@ public class TodayInfoDO {
         this.zgxl = zgxl;
     }
 
-    public Date getZgbyDate() {
+    public String getZgbyDate() {
         return zgbyDate;
     }
 
-    public void setZgbyDate(Date zgbyDate) {
+    public void setZgbyDate(String zgbyDate) {
         this.zgbyDate = zgbyDate;
     }
 
@@ -252,38 +283,5 @@ public class TodayInfoDO {
 
     public void setZgXueWei(String zgXueWei) {
         this.zgXueWei = zgXueWei;
-    }
-
-    @Override
-    public String toString() {
-        return "TodayInfoDO{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", byDate=" + byDate +
-                ", zhuanYe='" + zhuanYe + '\'' +
-                ", eduType='" + eduType + '\'' +
-                ", xueWei='" + xueWei + '\'' +
-                ", xueLi='" + xueLi + '\'' +
-                ", jsjLevel='" + jsjLevel + '\'' +
-                ", wyLevel='" + wyLevel + '\'' +
-                ", aiName='" + aiName + '\'' +
-                ", aiTel='" + aiTel + '\'' +
-                ", aiDw='" + aiDw + '\'' +
-                ", address='" + address + '\'' +
-                ", baBy='" + baBy + '\'' +
-                ", baByType='" + baByType + '\'' +
-                ", baByDate=" + baByDate +
-                ", tiJiao='" + tiJiao + '\'' +
-                ", tiJiaoDate=" + tiJiaoDate +
-                ", zTiJiao='" + zTiJiao + '\'' +
-                ", zGongHao='" + zGongHao + '\'' +
-                ", ziTiJiaoDate=" + ziTiJiaoDate +
-                ", zgxl='" + zgxl + '\'' +
-                ", zgbyDate=" + zgbyDate +
-                ", zgbyDaxue='" + zgbyDaxue + '\'' +
-                ", zgZhuanYe='" + zgZhuanYe + '\'' +
-                ", zgeduType='" + zgeduType + '\'' +
-                ", zgXueWei='" + zgXueWei + '\'' +
-                '}';
     }
 }

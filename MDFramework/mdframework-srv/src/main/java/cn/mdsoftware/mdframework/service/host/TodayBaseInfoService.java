@@ -7,7 +7,7 @@ import java.util.List;
 public interface TodayBaseInfoService {
     List<TodayBaseInfoDO> findAll();
 
-    TodayBaseInfoDO findById(String id);
+    TodayBaseInfoDO findById(String gonghao);
 
     int up(TodayBaseInfoDO hb);
 

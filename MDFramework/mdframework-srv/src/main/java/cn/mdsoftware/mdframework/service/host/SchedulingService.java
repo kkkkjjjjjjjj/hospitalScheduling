@@ -8,13 +8,13 @@ import java.util.Map;
 public interface SchedulingService {
     List<SchedulingDO> list(Map<String,Object> param);
 
+    boolean exit(Map<String, Object> params);
 
-    SchedulingDO findById(String xh);
+    SchedulingDO findById(Integer xh);
 
     int count(Map<String,Object> map);
 
     int add(SchedulingDO hpb);
-
 
     int del(Integer xh);
 }

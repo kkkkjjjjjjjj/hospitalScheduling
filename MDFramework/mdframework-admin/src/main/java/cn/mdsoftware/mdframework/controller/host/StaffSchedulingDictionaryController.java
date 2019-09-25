@@ -1,16 +1,15 @@
 package cn.mdsoftware.mdframework.controller.host;
 
 import cn.mdsoftware.mdframework.bean.entity.host.SchedulingDO;
+import cn.mdsoftware.mdframework.common.annotation.Log;
 import cn.mdsoftware.mdframework.common.utils.PageUtils;
 import cn.mdsoftware.mdframework.common.utils.Query;
+import cn.mdsoftware.mdframework.common.utils.R;
 import cn.mdsoftware.mdframework.service.host.SchedulingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -37,20 +36,38 @@ public class StaffSchedulingDictionaryController {
         return pageUtil;
     }
 
-    @RequestMapping("/Jump")
-    public String a(){
-        return "add";
+    @GetMapping("/add")
+    String add(){
+        return "host/dictionary/add";
     }
 
-    @RequestMapping("/add")
-    public String add(SchedulingDO schedulingDO){
-        schedulingService.add(schedulingDO);
-        return "redirect:host/dictionary/StaffSchedulingDictionary";
+
+    @PostMapping("/exit")
+    @ResponseBody
+    boolean exit(@RequestParam Map<String, Object> params) {
+        // Query query = new Query(params);
+        return !schedulingService.exit(params);// 存在，不通过，false
     }
+
+    @Log("保存用户")
+    @PostMapping("/save")
+    @ResponseBody
+    R save(SchedulingDO schedulingDO) {
+        if (schedulingService.add(schedulingDO) > 0) {
+            return R.ok();
+        }
+        return R.error();
+    }
+
+    @Log("删除用户")
     @RequestMapping("/del")
-    public String de(SchedulingDO host){
-        schedulingService.del(host.getXh());
-        return "redirect:host/dictionary/StaffSchedulingDictionary";
+    @ResponseBody
+    R del(SchedulingDO schedulingDO){
+        Integer i = schedulingService.del(schedulingDO.getXh());
+        if (i > 0) {
+            return R.ok();
+        }
+        return R.error();
     }
 
 

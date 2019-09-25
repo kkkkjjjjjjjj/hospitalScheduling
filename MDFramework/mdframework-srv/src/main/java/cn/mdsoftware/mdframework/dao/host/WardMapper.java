@@ -1,10 +1,7 @@
 package cn.mdsoftware.mdframework.dao.host;
 
 import cn.mdsoftware.mdframework.bean.entity.host.WardDO;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 import java.util.Map;
@@ -22,7 +19,7 @@ public interface WardMapper {
     @Select("select count(*) from HR_PAIBAN_RENYUAN ")
     int count(Map<String,Object> map);
 
-    @Update("update HR_PAIBAN_RENYUAN set xh=#{xh},user_name=#{userName},where user_name=#{userName}")
+    @Update("update HR_PAIBAN_RENYUAN set xh= #{xh},name=#{name},user_name=#{userName} where user_name=#{userName}")
     int update(WardDO wardDO);
 
 
@@ -30,8 +27,11 @@ public interface WardMapper {
     WardDO findById(String userName);
 
 
-    @Delete("delete from Hrpaibandicthlb where user_name=#{userName} ")
-    int del(Integer userName);
+    @Delete("delete from HR_PAIBAN_RENYUAN where user_name=#{userName} ")
+    int del(String userName);
+
+    @Insert("insert into HR_PAIBAN_RENYUAN (XH,USER_NAME,NAME,WARD_CODE,WARD_NAME,ZU) values (#{xh},#{userName},#{name},#{wardCode},#{wardName},#{zu})")
+    int save(WardDO wardDO);
 
 
 }

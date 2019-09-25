@@ -21,7 +21,14 @@ public class SchedulingServiceImpl implements SchedulingService {
     }
 
     @Override
-    public SchedulingDO findById(String xh) {
+    public boolean exit(Map<String, Object> params) {
+        boolean exit;
+        exit = schedulingMapper.list(params).size() > 0;
+        return exit;
+    }
+
+    @Override
+    public SchedulingDO findById(Integer xh) {
         return schedulingMapper.findById(xh);
     }
 
@@ -34,6 +41,8 @@ public class SchedulingServiceImpl implements SchedulingService {
     public int add(SchedulingDO paibanDicthlbDO) {
         return schedulingMapper.add(paibanDicthlbDO);
     }
+
+
 
     @Override
     public int del(Integer xh) {

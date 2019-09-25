@@ -142,3 +142,37 @@ function edit(userName) {
         content : prefix + '/edit/' + userName // iframe的url
     });
 }
+
+
+function remove(userName/*对应你controller里需要的那个变量*/) {
+    layer.confirm('确定要删除选中的记录？', {
+        btn : [ '确定', '取消' ]
+    }, function() {
+        $.ajax({
+            url : "/ward/del",
+            type : "post",
+            data : {
+                'userName' /*对应你需要的实体类里的字段*/: userName/*对应你需要的字段上边的field*/
+            },
+            success : function(r) {
+                if (r.code == 0) {
+                    layer.msg(r.msg);
+                    reLoad();
+                } else {
+                    layer.msg(r.msg);
+                }
+            }
+        });
+    })
+}
+
+function add() {
+    layer.open({
+        type: 2,
+        title: '增加',
+        maxmin: true,
+        shadeClose: false, // 点击遮罩关闭层
+        area: ['800px', '520px'],
+        content: prefix + '/add' // iframe的url
+    });
+}

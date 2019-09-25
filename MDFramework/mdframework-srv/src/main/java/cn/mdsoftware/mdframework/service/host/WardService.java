@@ -7,12 +7,16 @@ import java.util.Map;
 
 public interface WardService {
     List<WardDO> list(Map<String, Object> map);
+
     int count(Map<String,Object> map);
 
     int update(WardDO wardDO);
 
+    boolean exit(Map<String, Object> params);
+
     WardDO findById(String userName);
 
+    int save(WardDO wardDO);
 
-    int del(Integer userName);
+    int del(String userName);
 }
