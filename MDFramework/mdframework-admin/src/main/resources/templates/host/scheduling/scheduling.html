@@ -21,16 +21,13 @@
         <button>打印预览</button>
     </div>
 </div>
-<div class="row">
-    <div class="col-sm-12">
-        <div class="ibox">
-            <div class="ibox-body">
-                <div id="exampleToolbar" role="group">
-                    <div class="col-md-4">
-                                <table id="exampleTable" data-mobile-responsive="true">
-                                </table>
-                    </div>
-                </div>
+<div class="ibox">
+    <div class="ibox-body">
+        <div id="exampleToolbar" role="group">
+            <div class="col-md-12">
+                <input id="monday" name="monday" th:value="${monday}" type="hidden">
+                <table id="exampleTable" data-mobile-responsive="true">
+                </table>
             </div>
         </div>
     </div>
@@ -40,25 +37,41 @@
     <div class="panel-body">
         <table style="font-size: 18px">
             <tr>
-                <td><button>&emsp;  &emsp;</button></td>
-                <td><button>一</button></td>
-                <td><button>二</button></td>
-                <td><button>三</button></td>
-                <td><button>四</button></td>
-                <td><button>五</button></td>
-                <td><button>六</button></td>
-                <td><button>七</button></td>
+                <td>
+                    <button>&emsp; &emsp;</button>
+                </td>
+                <td>
+                    <button>一</button>
+                </td>
+                <td>
+                    <button>二</button>
+                </td>
+                <td>
+                    <button>三</button>
+                </td>
+                <td>
+                    <button>四</button>
+                </td>
+                <td>
+                    <button>五</button>
+                </td>
+                <td>
+                    <button>六</button>
+                </td>
+                <td>
+                    <button>七</button>
+                </td>
             </tr>
 
             <tr>
                 <td>&emsp;一听</td>
                 <td>宋明晏</td>
-                <td>&emsp;  &emsp;</td>
-                <td>&emsp;  &emsp;</td>
-                <td>&emsp;  &emsp;</td>
-                <td>&emsp;  &emsp;</td>
-                <td>&emsp;  &emsp;</td>
-                <td>&emsp;  &emsp;</td>
+                <td>&emsp; &emsp;</td>
+                <td>&emsp; &emsp;</td>
+                <td>&emsp; &emsp;</td>
+                <td>&emsp; &emsp;</td>
+                <td>&emsp; &emsp;</td>
+                <td>&emsp; &emsp;</td>
             </tr>
         </table>
     </div>

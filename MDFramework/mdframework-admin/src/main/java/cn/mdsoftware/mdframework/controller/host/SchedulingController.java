@@ -1,10 +1,14 @@
 package cn.mdsoftware.mdframework.controller.host;
 
 import cn.mdsoftware.mdframework.bean.entity.host.Day;
+import cn.mdsoftware.mdframework.bean.entity.host.SchedulDO;
 import cn.mdsoftware.mdframework.bean.entity.host.SchedulingDO;
+import cn.mdsoftware.mdframework.bean.entity.host.WardDO;
 import cn.mdsoftware.mdframework.common.utils.PageUtils;
 import cn.mdsoftware.mdframework.common.utils.Query;
+import cn.mdsoftware.mdframework.service.host.SchedulService;
 import cn.mdsoftware.mdframework.service.host.SchedulingService;
+import cn.mdsoftware.mdframework.service.host.WardService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,9 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 @RequestMapping("/schedul")
@@ -29,20 +31,58 @@ import java.util.Map;
 public class SchedulingController {
     @Autowired
     SchedulingService schedulingService;
+    @Autowired
+    WardService wardService;
+    @Autowired
+    SchedulService schedulService;
     //查询所有
     @GetMapping("/schedul")
     String find(Model model) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+        Calendar cal = Calendar.getInstance();
+        cal.setFirstDayOfWeek(Calendar.MONDAY);// 设置一个星期的第一天，按中国的习惯一个星期的第一天是星期一
+        int dayWeek = cal.get(Calendar.DAY_OF_WEEK);// 获得当前日期是一个星期的第几天
+        if(dayWeek==1){
+            dayWeek = 8;
+        }
+        System.out.println("要计算日期为:" + sdf.format(cal.getTime())); // 输出要计算日期
+
+        cal.add(Calendar.DATE, cal.getFirstDayOfWeek() - dayWeek);// 根据日历的规则，给当前日期减去星期几与一个星期第一天的差值
+        Date mondayDate = cal.getTime();
+        String monday = sdf.format(mondayDate);
+        System.out.println("所在周星期一的日期：" + monday);
+        model.addAttribute("monday","2018-03-28");
         return "host/scheduling/scheduling";
     }
 
     @GetMapping("/list")
     @ResponseBody
-    PageUtils list(@RequestParam Map<String, Object> params) {
+    PageUtils list(@RequestParam Map<String, Object> params) throws Exception{
         // 查询列表数据
         Query query = new Query(params);
-        List<SchedulingDO> wardDOList = schedulingService.list(query);
+        List<WardDO> wardList = wardService.list(query);
+
+        String monday = params.get("monday").toString();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date mon  = sdf.parse(monday);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(mon);
+
+        for (WardDO ward : wardList){
+            Map map = new HashMap(){{
+                put("wardCode", ward.getWardCode());
+                put("id", ward.getUserName());
+                put("riqi", monday);
+            }};;
+            List<SchedulDO> schedulMon = schedulService.list(map);
+            ward.setSchedulMon(schedulMon);
+
+//            mon.a
+//            map.put("riqi",mon)
+        }
         int total = schedulingService.count(query);
-        PageUtils pageUtil = new PageUtils(wardDOList, total);
+        PageUtils pageUtil = new PageUtils(wardList, total);
         return pageUtil;
     }
 

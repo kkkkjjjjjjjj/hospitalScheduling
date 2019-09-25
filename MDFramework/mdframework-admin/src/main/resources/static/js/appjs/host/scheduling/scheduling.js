@@ -34,7 +34,8 @@ function load() {
                         // 说明：传入后台的参数包括offset开始索引，limit步长，sort排序列，order：desc或者,以及所有列的键值对
                         limit : params.limit,
                         offset : params.offset,
-                        name : $('#searchName').val()
+                        name : $('#searchName').val(),
+                        monday : $("#monday").val()
                     };
                 },
                 columns : [
@@ -44,11 +45,19 @@ function load() {
                     },
                     {
                         title : '姓名',
-                        field : 'name',
+                        field : 'name'
                     },
                     {
-                        title : '姓名',
-                        field : 'name',
+                        title : '一',
+                        field : 'schedulMon',
+                        formatter : function(value, row, index) {
+                            var str = "";
+                            for(var i=0;i<value.length;i++){
+                                str = str + value[i].jc;
+                            }
+                            // console.log(value);
+                            return str;
+                        }
                     },
                     {
                         title : '姓名',
