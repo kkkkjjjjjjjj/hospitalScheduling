@@ -21,6 +21,7 @@ public interface SchedulMapper {
             "<if test=\"name != null and name != ''\">"+ "and obj.name = #{name} " + "</if>" +
             "<if test=\"id != null and id != ''\">"+ "and obj.id = #{id} " + "</if>" +
             "<if test=\"riqi != null and riqi != ''\">"+ "and obj.riqi = to_date(#{riqi},'yyyy-mm-dd') " + "</if>" +
+            "<if test=\"date != null and date != ''\">"+ "and obj.riqi = (to_date(#{date},'yyyy-mm-dd') + #{day}) " + "</if>" +
             "<if test=\"jc != null and jc != ''\">"+ "and obj.jc = #{jc} " + "</if>" +
             "<if test=\"bz != null and bz != ''\">"+ "and obj.bz = #{bz} " + "</if>" +
             "<if test=\"xh != null and xh != ''\">"+ "and obj.xh = #{xh} " + "</if>" +

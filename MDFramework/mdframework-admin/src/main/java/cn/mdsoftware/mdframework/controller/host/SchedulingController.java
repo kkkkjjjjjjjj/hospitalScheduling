@@ -64,22 +64,40 @@ public class SchedulingController {
         List<WardDO> wardList = wardService.list(query);
 
         String monday = params.get("monday").toString();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date mon  = sdf.parse(monday);
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(mon);
 
         for (WardDO ward : wardList){
             Map map = new HashMap(){{
                 put("wardCode", ward.getWardCode());
                 put("id", ward.getUserName());
-                put("riqi", monday);
+                put("date", monday);
+                put("day", 0);
             }};;
             List<SchedulDO> schedulMon = schedulService.list(map);
             ward.setSchedulMon(schedulMon);
 
-//            mon.a
-//            map.put("riqi",mon)
+            map.put("day", 1);
+            List<SchedulDO> schedulTues = schedulService.list(map);
+            ward.setSchedulTues(schedulTues);
+
+            map.put("day", 2);
+            List<SchedulDO> schedulWed = schedulService.list(map);
+            ward.setSchedulWed(schedulWed);
+
+            map.put("day", 3);
+            List<SchedulDO> schedulThu = schedulService.list(map);
+            ward.setSchedulThu(schedulThu);
+
+            map.put("day", 4);
+            List<SchedulDO> schedulFri = schedulService.list(map);
+            ward.setSchedulFri(schedulFri);
+
+            map.put("day", 5);
+            List<SchedulDO> schedulSat = schedulService.list(map);
+            ward.setSchedulSat(schedulSat);
+
+            map.put("day", 6);
+            List<SchedulDO> schedulSun = schedulService.list(map);
+            ward.setSchedulSun(schedulSun);
         }
         int total = schedulingService.count(query);
         PageUtils pageUtil = new PageUtils(wardList, total);

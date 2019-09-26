@@ -40,8 +40,8 @@ function load() {
                 },
                 columns : [
                     {
-                        title : '层级 ',
-                        field : 'userName',
+                        title : '层级',
+                        field : 'userName'
                     },
                     {
                         title : '姓名',
@@ -50,58 +50,60 @@ function load() {
                     {
                         title : '一',
                         field : 'schedulMon',
-                        formatter : function(value, row, index) {
-                            var str = "";
-                            for(var i=0;i<value.length;i++){
-                                str = str + value[i].jc;
-                            }
-                            // console.log(value);
-                            return str;
-                        }
-                    },
-                    {
-                        title : '姓名',
-                        field : 'name',
-                    },
-                    {
-                        title : '姓名',
-                        field : 'name',
-                    },
-                    {
-                        title : '姓名',
-                        field : 'name',
-                    }, {
-                        title : '姓名',
-                        field : 'name',
-                    },
-                    {
-                        title : '姓名',
-                        field : 'name',
-                    },
-                    {
-                        title : '姓名',
-                        field : 'name',
-                    },
-                    {
-                        title : '备注',
-                        field : 'name',
-                    },
-
-
-                    {
-                        title : '操作',
-                        field : 'id',
                         align : 'center',
                         formatter : function(value, row, index) {
-                            var e = '<a class="btn btn-primary btn-sm " href="#" mce_href="#" title="编辑" onclick="edit(\''
-                                + row.userName
-                                + '\')"><i class="fa fa-edit"></i></a> ';
-                            var d = '<a class="btn btn-warning btn-sm " href="#" title="删除"  mce_href="#" onclick="remove(\''
-                                + row.userName
-                                + '\')"><i class="fa fa-remove"></i></a> ';
-                            return e + d;
+                            return formatSchedul(value);
                         }
-                    } ]
+                    },
+                    {
+                        title : '二',
+                        field : 'schedulTues',
+                        align : 'center',
+                        formatter : function(value, row, index) {
+                            return formatSchedul(value);
+                        }
+                    },
+                    {
+                        title : '三',
+                        field : 'schedulWed',
+                        align : 'center',
+                        formatter : function(value, row, index) {
+                            return formatSchedul(value);
+                        }
+                    },
+                    {
+                        title : '四',
+                        field : 'schedulThu',
+                        align : 'center',
+                        formatter : function(value, row, index) {
+                            return formatSchedul(value);
+                        }
+                    },
+                    {
+                        title : '五',
+                        field : 'schedulFri',
+                        formatter : function(value, row, index) {
+                            return formatSchedul(value);
+                        }
+                    },
+                    {
+                        title : '六',
+                        field : 'schedulSat',
+                        align : 'center',
+                        formatter : function(value, row, index) {
+                            return formatSchedul(value);
+                        }
+                    },
+                    {
+                        title : '七',
+                        field : 'schedulSun',
+                        align : 'center',
+                        formatter : function(value, row, index) {
+                            return formatSchedul(value);
+                        }
+                    }
+
+                    ]
             });
 }
 function lobd() {
@@ -172,4 +174,14 @@ function lobd() {
 }
 function reLoad() {
     $('#exampleTable').bootstrapTable('refresh');
+}
+
+function formatSchedul(value) {
+    var str = "";
+    for(var i=0;i<value.length;i++){
+        var schedul = value[i].jc;
+        if(!isEmpty(schedul)) str = str + schedul;
+    }
+    console.log(value);
+    return str;
 }
