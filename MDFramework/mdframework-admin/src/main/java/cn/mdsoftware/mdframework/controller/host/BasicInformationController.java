@@ -46,11 +46,12 @@ public class BasicInformationController {
      * 修改
      */
     @GetMapping("/edit/{id}")
-    String edit(Model model, @PathVariable("userName") String id) {
+    String edit(Model model, @PathVariable("id") String id) {
         TodayInfoDO todayInfoDO = todayInfoService.findById(id);
         model.addAttribute("todayInfoDO",todayInfoDO);
         return "host/nurseinfo/edit";
     }
+
     @Log("更新用户")
     @PostMapping("/update")
     @ResponseBody

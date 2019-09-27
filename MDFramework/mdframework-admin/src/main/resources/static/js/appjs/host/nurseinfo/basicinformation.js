@@ -49,7 +49,7 @@ function load() {
                 onClickRow:function (row,$element) {
                     $('.info').removeClass('info');
                     $($element).addClass('info');
-                    $("#information").attr("src","/BasicInformation/ed?id="+row.id);
+                    $("#information").attr("src","/BasicInformation/edit/"+row.id);
                 },
                 // //请求服务器数据时，你可以通过重写参数的方式添加一些额外的参数，例如 toolbar 中的参数 如果
                 // queryParamsType = 'limit' ,返回参数必须包含
