@@ -36,10 +36,6 @@ public class StaffSchedulingDictionaryController {
         return pageUtil;
     }
 
-    @GetMapping("/add")
-    String add(){
-        return "host/dictionary/add";
-    }
 
 
     @PostMapping("/exit")
@@ -49,16 +45,21 @@ public class StaffSchedulingDictionaryController {
         return !schedulingService.exit(params);// 存在，不通过，false
     }
 
+    @GetMapping("/add")
+    String add(){
+        return "host/dictionary/add";
+    }
+
+
     @Log("保存用户")
     @PostMapping("/save")
     @ResponseBody
     R save(SchedulingDO schedulingDO) {
-        if (schedulingService.add(schedulingDO) > 0) {
+        if (schedulingService.save(schedulingDO) > 0) {
             return R.ok();
         }
         return R.error();
     }
-
     @Log("删除用户")
     @RequestMapping("/del")
     @ResponseBody

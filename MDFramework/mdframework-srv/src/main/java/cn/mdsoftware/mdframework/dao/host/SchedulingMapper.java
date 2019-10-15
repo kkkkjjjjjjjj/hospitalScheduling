@@ -1,7 +1,10 @@
 package cn.mdsoftware.mdframework.dao.host;
 
 import cn.mdsoftware.mdframework.bean.entity.host.SchedulingDO;
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 import java.util.Map;
@@ -21,12 +24,10 @@ public interface SchedulingMapper {
 
     @Select("select * from HR_PAIBAN_DICT_HLB where xh=#{xh}")
     SchedulingDO findById(Integer xh);
-
-
-    @Insert("insert into HR_PAIBAN_DICT_HLB (xh,jc,xx,starttime,endtime,shijian,danwei)" +
-            " values (#{xh},#{jc},#{xx},#{starttime},#{endtime},#{shijian},#{danwei})")
-    int add(SchedulingDO paibanDicthlbDO);
-
-    @Delete("delete from Hrpaibandicthlb where xh=#{xh} ")
+    @Delete("delete from HR_PAIBAN_DICT_HLB where xh=#{xh} ")
     int del(Integer xh);
+
+    @Insert("insert into HR_PAIBAN_DICT_HLB (xh,jc,xx,starttime,endtime,shijian)" +
+            " values (#{xh},#{jc},#{xx},#{startTime},#{endtime},#{shijian})")
+    int save(SchedulingDO paibanDicthlbDO);
 }

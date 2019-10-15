@@ -24,8 +24,26 @@ public class WardController {
 
     @GetMapping("/ward")
     String find(Model model) {
+        List<WardDO> wardDOList=wardService.listName();
+        model.addAttribute("wardDOList",wardDOList);
         return "host/ward/ward";
     }
+
+    /***
+     * 得到单个用户信息
+     * @param WardCode
+     * @param model
+     * @return
+     */
+    @RequestMapping("getUserInfoById")
+    @ResponseBody
+    public WardDO getUserInfoById(String WardCode,Model model) {
+        WardDO wardDO = new WardDO();
+        wardDO = wardService.findByWardCode(WardCode);
+        model.addAttribute("wardDO", wardDO);
+
+        return wardDO;
+}
 
     @GetMapping("/list")
     @ResponseBody
@@ -76,10 +94,9 @@ public class WardController {
 
 
     @PostMapping("/exit")
-    @ResponseBody
     boolean exit(@RequestParam Map<String, Object> params) {
-        // Query query = new Query(params);
-        return !wardService.exit(params);// 存在，不通过，false
+         Query query = new Query(params);
+        return wardService.exit(params);// 存在，不通过，false
     }
 
     @Log("保存用户")

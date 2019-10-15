@@ -107,7 +107,7 @@ function load() {
             });
 }
 function lobd() {
-    $('#examTable')
+    $('#examTablea')
         .bootstrapTable(
             {
                 method : 'get', // 服务器数据的请求方式 get or post
@@ -136,40 +136,76 @@ function lobd() {
                         // 说明：传入后台的参数包括offset开始索引，limit步长，sort排序列，order：desc或者,以及所有列的键值对
                         limit : params.limit,
                         offset : params.offset,
-                        name : $('#searchName').val()
+                        name : $('#searchName').val(),
+                        monday : $("#mondaya").val()
                     };
                 },
                 columns : [
                     {
-                        title : '序号',
-                        field : 'xh',
-                    },
-                    {
-                        title : '工号',
-                        field : 'userName',
+                        title : '层级',
+                        field : 'userName'
                     },
                     {
                         title : '姓名',
-                        field : 'name',
+                        field : 'name'
                     },
                     {
-                        title : '组',
-                        field : 'zu',
-                    },
-                    {
-                        title : '操作',
-                        field : 'id',
+                        title : '一',
+                        field : 'schedulMon',
                         align : 'center',
                         formatter : function(value, row, index) {
-                            var e = '<a class="btn btn-primary btn-sm " href="#" mce_href="#" title="编辑" onclick="edit(\''
-                                + row.userName
-                                + '\')"><i class="fa fa-edit"></i></a> ';
-                            var d = '<a class="btn btn-warning btn-sm " href="#" title="删除"  mce_href="#" onclick="remove(\''
-                                + row.userName
-                                + '\')"><i class="fa fa-remove"></i></a> ';
-                            return e + d;
+                            return formatSchedul(value);
                         }
-                    } ]
+                    },
+                    {
+                        title : '二',
+                        field : 'schedulTues',
+                        align : 'center',
+                        formatter : function(value, row, index) {
+                            return formatSchedul(value);
+                        }
+                    },
+                    {
+                        title : '三',
+                        field : 'schedulWed',
+                        align : 'center',
+                        formatter : function(value, row, index) {
+                            return formatSchedul(value);
+                        }
+                    },
+                    {
+                        title : '四',
+                        field : 'schedulThu',
+                        align : 'center',
+                        formatter : function(value, row, index) {
+                            return formatSchedul(value);
+                        }
+                    },
+                    {
+                        title : '五',
+                        field : 'schedulFri',
+                        formatter : function(value, row, index) {
+                            return formatSchedul(value);
+                        }
+                    },
+                    {
+                        title : '六',
+                        field : 'schedulSat',
+                        align : 'center',
+                        formatter : function(value, row, index) {
+                            return formatSchedul(value);
+                        }
+                    },
+                    {
+                        title : '七',
+                        field : 'schedulSun',
+                        align : 'center',
+                        formatter : function(value, row, index) {
+                            return formatSchedul(value);
+                        }
+                    }
+
+                ]
             });
 }
 function reLoad() {

@@ -1,16 +1,12 @@
 package cn.mdsoftware.mdframework.dao.log;
 
-import java.util.List;
-import java.util.Map;
-
-import cn.mdsoftware.mdframework.bean.entity.log.SysLogDO;
 import cn.mdsoftware.mdframework.bean.entity.log.SysLogDO;
 import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import cn.mdsoftware.mdframework.bean.entity.log.SysLogDO;
+import java.util.List;
+import java.util.Map;
 
 public interface LogMapper {
 
@@ -44,12 +40,12 @@ public interface LogMapper {
 
 	@Select("select count(*) from sys_log")
 	int count();
-
-	@Insert("insert into sys_log (id, user_id, username,operation, time, method,params, ip, gmt_create)"
-			+ "values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, "
-			+ "#{operation,jdbcType=VARCHAR}, #{time,jdbcType=INTEGER}, #{method,jdbcType=VARCHAR}, "
-			+ "#{params,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP})")
-	int save(SysLogDO log);
+//
+//	@Insert("insert into sys_log (id, user_id, username,operation, time, method,params, ip, gmt_create)"
+//			+ "values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, "
+//			+ "#{operation,jdbcType=VARCHAR}, #{time,jdbcType=INTEGER}, #{method,jdbcType=VARCHAR}, "
+//			+ "#{params,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP})")
+//	int save(SysLogDO log);
 
 	@Update("<script>" + "update sys_log " + "<set>" + "<if test=\"userId != null\">`user_id` = #{userId}, </if>"
 			+ "<if test=\"username != null\">`username` = #{username}, </if>"

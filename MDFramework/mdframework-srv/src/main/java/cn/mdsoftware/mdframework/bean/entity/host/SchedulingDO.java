@@ -7,7 +7,6 @@ public class SchedulingDO {
     private String startTime;       //对应数据库starttime   开始时间
     private String endtime;         //对应数据库endTime       结束时间
     private String shijian;         //对应数据库shiJian      时间
-    private String danwei;          //对应数据库danWei      时间单位
 
 
     public Integer getXh() {
@@ -58,13 +57,7 @@ public class SchedulingDO {
         this.shijian = shijian;
     }
 
-    public String getDanwei() {
-        return danwei;
-    }
 
-    public void setDanwei(String danwei) {
-        this.danwei = danwei;
-    }
 
     @Override
     public String toString() {
@@ -75,7 +68,6 @@ public class SchedulingDO {
                 ", startTime='" + startTime + '\'' +
                 ", endtime='" + endtime + '\'' +
                 ", shijian='" + shijian + '\'' +
-                ", danwei='" + danwei + '\'' +
                 '}';
     }
 }

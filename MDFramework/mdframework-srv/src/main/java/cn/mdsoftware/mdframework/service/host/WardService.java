@@ -8,6 +8,10 @@ import java.util.Map;
 public interface WardService {
     List<WardDO> list(Map<String, Object> map);
 
+
+    List<WardDO> listName();
+    WardDO findByWardCode(String code);
+
     int count(Map<String,Object> map);
 
     int update(WardDO wardDO);

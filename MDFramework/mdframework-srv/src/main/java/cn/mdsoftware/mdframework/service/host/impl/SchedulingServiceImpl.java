@@ -38,15 +38,16 @@ public class SchedulingServiceImpl implements SchedulingService {
     }
 
     @Override
-    public int add(SchedulingDO paibanDicthlbDO) {
-        return schedulingMapper.add(paibanDicthlbDO);
+    public int save(SchedulingDO SchedulingDO) {
+        return schedulingMapper.save(SchedulingDO);
     }
+
+
 
 
 
     @Override
     public int del(Integer xh) {
-
         return schedulingMapper.del(xh);
     }
 }

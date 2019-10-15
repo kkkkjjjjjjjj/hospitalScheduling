@@ -7,14 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
+
 @Service
 public class TodayBaseInfoServiceImpl implements TodayBaseInfoService {
     @Autowired
     private TodayBaseInfoMapper todayBaseInfoMapper;
 
     @Override
-    public List<TodayBaseInfoDO> findAll() {
-        return todayBaseInfoMapper.findAll();
+    public List<TodayBaseInfoDO> findAll(Map<String, Object> map) {
+        return todayBaseInfoMapper.findAll(map);
     }
 
     @Override

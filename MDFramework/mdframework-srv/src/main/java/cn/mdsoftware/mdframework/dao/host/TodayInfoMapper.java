@@ -31,5 +31,6 @@ public interface TodayInfoMapper {
     int up(TodayInfoDO todayInfoDO);
     @Insert("insert into hr_today_info (student,score) values (#{student},#{score})")
     public int add(TodayInfoDO todayInfoDO);
+
 }
 

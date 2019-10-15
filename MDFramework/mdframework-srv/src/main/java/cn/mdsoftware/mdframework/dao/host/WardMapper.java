@@ -15,16 +15,21 @@ public interface WardMapper {
             "</if>"+
             "</script>")
     List<WardDO> list(Map<String,Object> param);
+    @Select("select DISTINCT HR_PAIBAN_RENYUAN.WARD_NAME from HR_PAIBAN_RENYUAN")
+    List<WardDO> listName();
 
     @Select("select count(*) from HR_PAIBAN_RENYUAN ")
     int count(Map<String,Object> map);
 
-    @Update("update HR_PAIBAN_RENYUAN set xh= #{xh},name=#{name},user_name=#{userName} where user_name=#{userName}")
+    @Update("update HR_PAIBAN_RENYUAN set xh= #{xh},name=#{name},user_name=#{userName},zu=#{zu} where user_name=#{userName}")
     int update(WardDO wardDO);
 
 
     @Select("select * from HR_PAIBAN_RENYUAN where user_name=#{userName}")
     WardDO findById(String userName);
+
+    @Select("select * from HR_PAIBAN_RENYUAN where WARD_CODE=#{code}")
+    WardDO findByWardCode(String code);
 
 
     @Delete("delete from HR_PAIBAN_RENYUAN where user_name=#{userName} ")
