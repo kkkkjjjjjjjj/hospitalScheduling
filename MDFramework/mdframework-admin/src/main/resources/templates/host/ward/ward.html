@@ -29,12 +29,11 @@
                             <div class="panel-heading">
                                 <br/>
                                 <br/>
-                                <select id="chartType" name="wardDOList" style="color: black">
+                                <select id="chartType" name="wardDOList" style="color: black"  onclick="reLoad()">
                                     <option value="">全部</option>
                                     <option th:each="ward:${wardDOList}" th:value="${ward.zu}"
                                     th:text="${ward.zu}" ></option>
                                 </select>
-                                <button class="btn btn-success" onclick="reLoad()">查询</button>
                             </div>
                             <div class="panel-body"  style="font-size: 18px;">
                             <table id="examTable" data-mobile-responsive="true">
