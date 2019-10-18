@@ -13,7 +13,7 @@ window.onload = function() {
     lobd();
 }
 function lobd() {
-    $('#examTable')
+    $('#exampleToolbar')
         .bootstrapTable(
             {
                 method : 'get', // 服务器数据的请求方式 get or post
@@ -22,7 +22,7 @@ function lobd() {
                 // showToggle : true,
                 // showColumns : true,
                 iconSize : 'outline',
-                toolbar : '#exampleToolbar',
+                // toolbar : '#exampleToolbar',
                 striped : true, // 设置为true会有隔行变色效果
                 dataType : "json", // 服务器返回的数据类型
                 pagination : true, // 设置为true会在底部显示分页条
@@ -45,20 +45,14 @@ function lobd() {
                         name : $('#searchName').val()
                     };
                 },
-                // //请求服务器数据时，你可以通过重写参数的方式添加一些额外的参数，例如 toolbar 中的参数 如果
-                // queryParamsType = 'limit' ,返回参数必须包含
-                // limit, offset, search, sort, order 否则, 需要包含:
-                // pageSize, pageNumber, searchText, sortName,
-                // sortOrder.
-                // 返回false将会终止请求
                 columns : [
                     {
+                        title : '工号',
                         field : 'id',
-                        title : '工号'
                     },
                     {
+                        title : '姓名',
                         field : 'name',
-                        title : '姓名'
                     }]
             });
 }

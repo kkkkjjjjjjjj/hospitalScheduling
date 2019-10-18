@@ -53,10 +53,12 @@ public class WardServiceImpl implements WardService {
         return wardMapper.findById(userName);
     }
 
+
     @Override
     public int save(WardDO wardDO) {
         return wardMapper.save(wardDO);
     }
+
 
 
     @Override

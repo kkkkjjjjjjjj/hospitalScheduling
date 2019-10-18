@@ -10,6 +10,7 @@ public interface WardService {
 
 
     List<WardDO> listName();
+
     WardDO findByWardCode(String code);
 
     int count(Map<String,Object> map);
@@ -19,6 +20,7 @@ public interface WardService {
     boolean exit(Map<String, Object> params);
 
     WardDO findById(String userName);
+
 
     int save(WardDO wardDO);
 

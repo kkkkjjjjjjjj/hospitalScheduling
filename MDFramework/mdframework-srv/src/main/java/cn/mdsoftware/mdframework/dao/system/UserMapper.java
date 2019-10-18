@@ -1,17 +1,10 @@
 package cn.mdsoftware.mdframework.dao.system;
 
+import cn.mdsoftware.mdframework.bean.entity.system.SysUserDO;
+import org.apache.ibatis.annotations.*;
+
 import java.util.List;
 import java.util.Map;
-
-import cn.mdsoftware.mdframework.bean.entity.system.SysUserDO;
-import cn.mdsoftware.mdframework.bean.entity.system.SysUserDO;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
-
-import cn.mdsoftware.mdframework.bean.entity.system.SysUserDO;
 
 public interface UserMapper {
 
@@ -20,13 +13,13 @@ public interface UserMapper {
 	
 	@Select("<script>" +
 	"select * from sys_user " + 
-			"<where>" + 
-		  		  "<if test=\"userId != null and userId != ''\">"+ "and user_id = #{userId} " + "</if>" + 
-		  		  "<if test=\"username != null and username != ''\">"+ "and username = #{username} " + "</if>" + 
-		  		  "<if test=\"password != null and password != ''\">"+ "and password = #{password} " + "</if>" + 
-		  		  "<if test=\"email != null and email != ''\">"+ "and email = #{email} " + "</if>" + 
-		  		  "<if test=\"mobile != null and mobile != ''\">"+ "and mobile = #{mobile} " + "</if>" + 
-		  		  "<if test=\"status != null and status != ''\">"+ "and status = #{status} " + "</if>" + 
+			"<where>" +
+		  		  "<if test=\"userId != null and userId != ''\">"+ "and user_id = #{userId} " + "</if>" +
+		  		  "<if test=\"username != null and username != ''\">"+ "and username = #{username} " + "</if>" +
+		  		  "<if test=\"password != null and password != ''\">"+ "and password = #{password} " + "</if>" +
+		  		  "<if test=\"email != null and email != ''\">"+ "and email = #{email} " + "</if>" +
+		  		  "<if test=\"mobile != null and mobile != ''\">"+ "and mobile = #{mobile} " + "</if>" +
+		  		  "<if test=\"status != null and status != ''\">"+ "and status = #{status} " + "</if>" +
 		  		  "<if test=\"userIdCreate != null and userIdCreate != ''\">"+ "and user_id_create = #{userIdCreate} " + "</if>" + 
 		  		  "<if test=\"gmtCreate != null and gmtCreate != ''\">"+ "and gmt_create = #{gmtCreate} " + "</if>" + 
 		  		  "<if test=\"gmtModified != null and gmtModified != ''\">"+ "and gmt_modified = #{gmtModified} " + "</if>" + 
@@ -45,7 +38,7 @@ public interface UserMapper {
 		  		  "<if test=\"username != null and username != ''\">"+ "and username = #{username} " + "</if>" + 
 		  		  "<if test=\"password != null and password != ''\">"+ "and password = #{password} " + "</if>" + 
 		  		  "<if test=\"email != null and email != ''\">"+ "and email = #{email} " + "</if>" + 
-		  		  "<if test=\"mobile != null and mobile != ''\">"+ "and mobile = #{mobile} " + "</if>" + 
+		  		  "<if test=\"mobile != null and mobile != ''\">"+ 		"and mobile = #{mobile} " + "</if>" +
 		  		  "<if test=\"status != null and status != ''\">"+ "and status = #{status} " + "</if>" + 
 		  		  "<if test=\"userIdCreate != null and userIdCreate != ''\">"+ "and user_id_create = #{userIdCreate} " + "</if>" + 
 		  		  "<if test=\"gmtCreate != null and gmtCreate != ''\">"+ "and gmt_create = #{gmtCreate} " + "</if>" + 

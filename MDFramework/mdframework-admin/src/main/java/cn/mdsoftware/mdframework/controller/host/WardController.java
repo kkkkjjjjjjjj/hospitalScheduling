@@ -41,7 +41,6 @@ public class WardController {
         WardDO wardDO = new WardDO();
         wardDO = wardService.findByWardCode(WardCode);
         model.addAttribute("wardDO", wardDO);
-
         return wardDO;
 }
 
@@ -55,6 +54,7 @@ public class WardController {
         PageUtils pageUtil = new PageUtils(wardDOList, total);
         return pageUtil;
     }
+
 
     /**
      * 修改
