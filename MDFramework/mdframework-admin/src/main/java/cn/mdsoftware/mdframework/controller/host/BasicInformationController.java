@@ -48,7 +48,9 @@ public class BasicInformationController {
     @GetMapping("/edit/{id}")
     String edit(Model model, @PathVariable("id") String id) {
         TodayInfoDO todayInfoDO = todayInfoService.findById(id);
+        //TodayBaseInfoDO todayBaseInfoDO=todayBaseInfoService.findById(id);
         model.addAttribute("todayInfoDO",todayInfoDO);
+        //model.addAttribute("todayBaseInfoDO",todayBaseInfoDO);
         return "host/nurseinfo/edit";
     }
 

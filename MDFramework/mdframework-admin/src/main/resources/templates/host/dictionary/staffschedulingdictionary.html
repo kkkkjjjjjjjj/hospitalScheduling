@@ -11,19 +11,22 @@
                 <div id="exampleToolbar" role="group">
                     <div class="col-md-7">
                         <div class="panel panel-primary">
-                            <div class="panel-heading">全院字典</div>
-                            <div class="panel-body">
-                                <table id="exampleTable" data-mobile-responsive="true">
-                                </table>
+                            <div class="panel-heading">全院字典
                                 <button class="btn btn-success"  onclick="add()">
                                     <i class="fa fa-plus hidden" aria-hidden="true"></i>添加
                                 </button>
+                            </div>
+                            <div class="panel-body">
+                                <table id="exampleTable" data-mobile-responsive="true">
+                                </table>
+
                             </div>
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="panel panel-primary">
-                            <div class="panel-heading">病区字典</div>
+                            <div class="panel-heading">病区字典
+                            </div>
                             <div class="panel-body">
                                 <table id="examTable" data-mobile-responsive="true">
                                 </table>
@@ -39,46 +42,46 @@
 
 
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog row" role="document">
-        <div class="modal-content" style="font-size: 24px;">
-            <form action="/StaffSchedulingDictionary/add">
-            <table>
-            <tr>
-                <td>序号： </td>
-                <td><input type="text" name="xuhao"></td>
-            </tr>
-            <br/>
-            <tr>
-                <td>简称： </td>
-                <td><input type="text" name="jiancheng"></td>
-            </tr>
-            <tr>
-                <td>详细描述： </td>
-                <td><input type="text" name="miaoshu"></td>
-            </tr>
-            <tr>
-                <td>时长： </td>
-                <td><input type="text" name="time"></td>
-            </tr>
-            <tr>
-                <td>开始时间： </td>
-                <td><input type="text" name="starttime"></td>
-            </tr>
-            <tr>
-                <td>结束时间： </td>
-                <td><input type="text" name="endtime"></td>
-            </tr>
-            </table>
+<!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">-->
+<!--    <div class="modal-dialog row" role="document">-->
+<!--        <div class="modal-content" style="font-size: 24px;">-->
+<!--            <form action="/StaffSchedulingDictionary/add">-->
+<!--            <table>-->
+<!--            <tr>-->
+<!--                <td>序号： </td>-->
+<!--                <td><input type="text" name="xuhao"></td>-->
+<!--            </tr>-->
+<!--            <br/>-->
+<!--            <tr>-->
+<!--                <td>简称： </td>-->
+<!--                <td><input type="text" name="jiancheng"></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>详细描述： </td>-->
+<!--                <td><input type="text" name="miaoshu"></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>时长： </td>-->
+<!--                <td><input type="text" name="time"></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>开始时间： </td>-->
+<!--                <td><input type="text" name="startTime"></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>结束时间： </td>-->
+<!--                <td><input type="text" name="endtime"></td>-->
+<!--            </tr>-->
+<!--            </table>-->
 
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-default">添加</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">取消 </button>
-            </div>
-            </form>
-        </div>
-    </div>
-</div>
+<!--            <div class="modal-footer">-->
+<!--                <button type="submit" class="btn btn-default">添加</button>-->
+<!--                <button type="button" class="btn btn-primary" data-dismiss="modal">取消 </button>-->
+<!--            </div>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 <div th:include="include::footer"></div>
 <script type="text/javascript" src="/js/appjs/host/dictionary/staffschedulingdictionary.js"></script>
 </body>

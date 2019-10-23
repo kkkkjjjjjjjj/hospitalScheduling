@@ -138,7 +138,7 @@ function reLoad() {
     $('#exampleTable').bootstrapTable('refresh');
 }
 
-function remove(userName/*对应你controller里需要的那个变量*/) {
+function remove(xh/*对应你controller里需要的那个变量*/) {
     layer.confirm('确定要删除选中的记录？', {
         btn : [ '确定', '取消' ]
     }, function() {
@@ -146,7 +146,7 @@ function remove(userName/*对应你controller里需要的那个变量*/) {
             url : "/StaffSchedulingDictionary/del",
             type : "post",
             data : {
-                'xh' : xh
+                'xh' /*对应你需要的实体类里的字段*/: xh/*对应你需要的字段上边的field*/
             },
             success : function(r) {
                 if (r.code == 0) {

@@ -107,7 +107,7 @@ public class SchedulingController {
     //添加
     @RequestMapping("/add")
     public String add(SchedulingDO schedulingDO){
-        schedulingService.add(schedulingDO);
+        schedulingService.save(schedulingDO);
         return "redirect:host/scheduling/Scheduling";
     }
 

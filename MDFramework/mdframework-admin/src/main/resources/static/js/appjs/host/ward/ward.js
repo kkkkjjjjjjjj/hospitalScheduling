@@ -62,8 +62,10 @@ $(function() {
                     } ]
             });
 }
+
 function lobd() {
-    $('#examTable')
+
+   $('#examTable')
         .bootstrapTable(
             {
                 method : 'get', // 服务器数据的请求方式 get or post
@@ -92,13 +94,13 @@ function lobd() {
                         // 说明：传入后台的参数包括offset开始索引，limit步长，sort排序列，order：desc或者,以及所有列的键值对
                         limit : params.limit,
                         offset : params.offset,
-                        name : $('#searchName').val()
+                        zu : $('#chartType').val()//向后台传值，需要那个值就改成实体类相对应的
                     };
                 },
                 columns : [
                     {
-                        title : '序号',
-                        field : 'xh',
+                        title : '序号',//列名
+                        field : 'xh',//实体类对应的对象
                     },
                     {
                         title : '工号',
@@ -127,9 +129,13 @@ function lobd() {
                         }
                     } ]
             });
+
 }
+
+
 function reLoad() {
-    $('#exampleTable').bootstrapTable('refresh');
+    $('#examTable').bootstrapTable("refresh")
+
 }
 
 function edit(userName) {
@@ -176,3 +182,6 @@ function add() {
         content: prefix + '/add' // iframe的url
     });
 }
+
+
+
