@@ -21,6 +21,16 @@ public class WardServiceImpl implements WardService {
     }
 
     @Override
+    public List<WardDO> listName() {
+        return wardMapper.listName();
+    }
+
+    @Override
+    public WardDO findByWardCode(String code) {
+        return wardMapper.findByWardCode(code);
+    }
+
+    @Override
     public int count(Map<String, Object> map) {
         return wardMapper.count(map);
     }
@@ -43,10 +53,12 @@ public class WardServiceImpl implements WardService {
         return wardMapper.findById(userName);
     }
 
+
     @Override
     public int save(WardDO wardDO) {
         return wardMapper.save(wardDO);
     }
+
 
 
     @Override

@@ -6,6 +6,7 @@ public class TodayInfoDO {
     private String id;                  //对应数据库id     //工号
     private String name;                //对应数据库name   姓名
     private String byDate;               //对应数据库byDate  毕业时间
+    private String byDaXue;               //对应数据库byDate  大学
     private String zhuanYe;             //对应数据库zhuanYe   专业
     private String eduType;            //对应数据库eduType
     private String xueWei;              //对应数据库xueWei  学位
@@ -38,6 +39,7 @@ public class TodayInfoDO {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", byDate='" + byDate + '\'' +
+                ", byDaXue='" + byDaXue + '\'' +
                 ", zhuanYe='" + zhuanYe + '\'' +
                 ", eduType='" + eduType + '\'' +
                 ", xueWei='" + xueWei + '\'' +
@@ -63,6 +65,14 @@ public class TodayInfoDO {
                 ", zgeduType='" + zgeduType + '\'' +
                 ", zgXueWei='" + zgXueWei + '\'' +
                 '}';
+    }
+
+    public String getByDaXue() {
+        return byDaXue;
+    }
+
+    public void setByDaXue(String byDaXue) {
+        this.byDaXue = byDaXue;
     }
 
     public static long getSerialVersionUID() {

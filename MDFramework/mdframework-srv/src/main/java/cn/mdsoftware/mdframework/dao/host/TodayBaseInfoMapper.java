@@ -7,13 +7,16 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
+import java.util.Map;
+
 @Mapper
 public interface TodayBaseInfoMapper {
     @Select("select * from hr_today_baseinfo")
-    List<TodayBaseInfoDO> findAll();
+    List<TodayBaseInfoDO> findAll(Map<String, Object> map);
 
     @Select("select * from hr_today_baseinfo where gonghao=#{gonghao}")
     TodayBaseInfoDO findById(String gonghao);
+
 
     @Update("update hr_today_baseinfo set gonghao=#{gongHao},name=#{name},sex=#{sex}," +
             "height=#{height},natton=#{natton},class=#{claezez},birthday=#{birthday}," +
@@ -27,5 +30,5 @@ public interface TodayBaseInfoMapper {
     int up(TodayBaseInfoDO todayBaseInfoDO);
 
     @Insert("insert into hr_today_baseinfo (student,score) values (#{student},#{score})")
-    public int add(TodayBaseInfoDO todayBaseInfoDO);
+    int add(TodayBaseInfoDO todayBaseInfoDO);
 }

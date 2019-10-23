@@ -14,7 +14,7 @@ public interface SchedulingService {
 
     int count(Map<String,Object> map);
 
-    int add(SchedulingDO hpb);
+    int save(SchedulingDO SchedulingDO);
 
     int del(Integer xh);
 }
