@@ -1,7 +1,6 @@
 package cn.mdsoftware.mdframework.dao.host;
 
 import cn.mdsoftware.mdframework.bean.entity.host.TodayBaseInfoDO;
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -29,6 +28,6 @@ public interface TodayBaseInfoMapper {
             "zhaopian=#{zhaoPian},xuehui=#{xueHui},zhuanke=#{zhuanKe} where id=#{id}")
     int up(TodayBaseInfoDO todayBaseInfoDO);
 
-    @Insert("insert into hr_today_baseinfo (student,score) values (#{student},#{score})")
-    int add(TodayBaseInfoDO todayBaseInfoDO);
+//    @Insert("insert into hr_today_baseinfo (student,score) values (#{student},#{score})")
+//    int add(TodayBaseInfoDO todayBaseInfoDO);
 }

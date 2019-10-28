@@ -10,7 +10,7 @@
         <div class="ibox">
             <div class="ibox-body">
                 <div id="exampleToolbar" role="group">
-                    <div class="col-md-4">
+                    <div class="col-md-10">
                         <div class="panel panel-primary">
                             <div class="panel-heading">病区操作  &emsp;无工号人员请填写“无工号01”,“无工号01”，依次类推，不要重复
                             </div>
@@ -23,12 +23,12 @@
                             </div>
                         </div>
                 </div>
-                    <div class="col-md-2"></div>
-                    <div class="col-md-4">
+                    <div class="col-md-10">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <br/>
                                 <br/>
+                                <lable>请选择病区:</lable>
                                 <select id="chartType" name="wardDOList" style="color: black"  onclick="reLoad()">
                                     <option value="">全部</option>
                                     <option th:each="ward:${wardDOList}" th:value="${ward.zu}"

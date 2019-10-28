@@ -27,7 +27,7 @@ public interface BannerInfoMapper {
                                                             "<if test=\"linkUrl != null and linkUrl != ''\">"+ "and obj.link_url = #{linkUrl} " + "</if>" +
                                                             "<if test=\"orderBy != null and orderBy != ''\">"+ "and obj.order_by = #{orderBy} " + "</if>" +
                                                             "<if test=\"startTime != null and startTime != ''\">"+ "and obj.start_time = #{startTime} " + "</if>" +
-                                                            "<if test=\"endTime != null and endTime != ''\">"+ "and obj.end_time = #{endTime} " + "</if>" +
+                                       	                     "<if test=\"endTime != null and endTime != ''\">"+ "and obj.end_time = #{endTime} " + "</if>" +
                                                             "<if test=\"status != null and status != ''\">"+ "and obj.status = #{status} " + "</if>" +
                                                             "<if test=\"createTime != null and createTime != ''\">"+ "and obj.create_time = #{createTime} " + "</if>" +
                                                             "<if test=\"delStatus != null and delStatus != ''\">"+ "and obj.del_status = #{delStatus} " + "</if>" +

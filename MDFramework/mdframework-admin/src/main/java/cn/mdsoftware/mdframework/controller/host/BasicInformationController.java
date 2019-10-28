@@ -45,12 +45,12 @@ public class BasicInformationController {
     /**
      * 修改
      */
-    @GetMapping("/edit/{id}")
-    String edit(Model model, @PathVariable("id") String id) {
+    @GetMapping("/edit")
+    String edit(Model model, String id) {
         TodayInfoDO todayInfoDO = todayInfoService.findById(id);
-        //TodayBaseInfoDO todayBaseInfoDO=todayBaseInfoService.findById(id);
+//        TodayBaseInfoDO todayBaseInfoDO=todayBaseInfoService.findById(id);
         model.addAttribute("todayInfoDO",todayInfoDO);
-        //model.addAttribute("todayBaseInfoDO",todayBaseInfoDO);
+//        model.addAttribute("todayBaseInfoDO",todayBaseInfoDO);
         return "host/nurseinfo/edit";
     }
 

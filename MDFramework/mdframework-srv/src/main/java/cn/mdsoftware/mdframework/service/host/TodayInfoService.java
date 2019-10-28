@@ -9,6 +9,8 @@ public interface TodayInfoService {
     List<TodayInfoDO> findAll(Map<String, Object> map);
     Integer count(Map<String, Object> map);
 
+    boolean exit(Map<String, Object> params);
+
     TodayInfoDO findById(String id);
 
     int up(TodayInfoDO ht);

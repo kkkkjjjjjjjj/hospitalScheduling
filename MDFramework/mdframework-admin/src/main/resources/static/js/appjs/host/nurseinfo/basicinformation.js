@@ -12,8 +12,9 @@ window.onload = function() {
     autoHeight(document.getElementById('information'));
     lobd();
 }
+
 function lobd() {
-    $('#exampleToolbar')
+    $('#exampleTable')
         .bootstrapTable(
             {
                 method : 'get', // 服务器数据的请求方式 get or post
@@ -48,7 +49,7 @@ function lobd() {
                 onClickRow:function (row,$element) {
                     $('.info').removeClass('info');
                     $($element).addClass('info');
-                    $("#information").attr("src","/BasicInformation/ed?id="+row.id);
+                    $("#information").attr("src","/BasicInformation/edit?id="+row.id);
                 },
                 columns : [
                     {
@@ -61,4 +62,14 @@ function lobd() {
                     }]
             });
 }
+
+function relobd() {
+    $('#exampleTable').bootstrapTable("refresh")
+}
+
+function refreshs(){
+    refresh();
+}
+
+
 

@@ -9,18 +9,6 @@ import java.util.Map;
 @Mapper
 public interface WardMapper {
 
-    public  final static String selectsql = "obj.* ";
-    public final static String joinsql = "";
-
-
-    public final static String wheresql = "<where> " +
-            "<if test=\"xh != null and xh != ''\">"+ "and obj.XH = #{xh} " + "</if>" +
-            "<if test=\"userName != null and userName != ''\">"+ "and obj.USER_NAME = #{userName} " + "</if>" +
-            "<if test=\"name != null and name != ''\">"+ "and obj.NAME = #{name} " + "</if>" +
-            "<if test=\" wardCode!= null and wardCode != ''\">"+ "and obj.WARD_CODE = #{wardCode} " + "</if>" +
-            "<if test=\"wardName != null and wardName != ''\">"+ "and obj.WARD_NAME = #{wardName} " + "</if>" +
-            "<if test=\"zu != null and zu != ''\">"+ "and obj.ZU = #{zu} " + "</if>" +
-            "</where>";
 
     @Select("<script>" +
             "select * from HR_PAIBAN_RENYUAN obj " +
@@ -41,6 +29,10 @@ public interface WardMapper {
 
 
     @Select("select DISTINCT HR_PAIBAN_RENYUAN.ZU from HR_PAIBAN_RENYUAN")
+    List<WardDO> listZu();
+    @Select("select DISTINCT HR_PAIBAN_RENYUAN.ward_name from HR_PAIBAN_RENYUAN")
+    List<WardDO> listWard();
+    @Select("select DISTINCT HR_PAIBAN_RENYUAN.name from HR_PAIBAN_RENYUAN")
     List<WardDO> listName();
 
     @Select("<script>" +

@@ -64,7 +64,6 @@ $(function() {
 }
 
 function lobd() {
-
    $('#examTable')
         .bootstrapTable(
             {

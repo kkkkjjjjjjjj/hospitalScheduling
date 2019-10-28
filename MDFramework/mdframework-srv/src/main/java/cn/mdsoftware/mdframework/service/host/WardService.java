@@ -25,4 +25,9 @@ public interface WardService {
     int save(WardDO wardDO);
 
     int del(String userName);
+
+    List<WardDO> listWard();
+    List<WardDO> listZu();
+
+
 }

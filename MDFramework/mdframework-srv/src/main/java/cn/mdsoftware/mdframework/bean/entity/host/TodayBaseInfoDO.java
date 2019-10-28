@@ -9,9 +9,9 @@ public class TodayBaseInfoDO {
     private String name;                //对应数据库name   姓名
     private String sex;                 //对应数据库sex   性别
     private String height;              //对应数据库heigtht   身高
-    private String nation;              //对应数据库nation
-    private String claezez;             //对应数据库class   层级
-    private String cardNo;              //对应数据库card_no
+    private String nation;              //对应数据库nation    民族
+    private String claezez;             //对应数据库class     层级
+    private String cardNo;              //对应数据库card_no  身份证号
     private Date birthday;              //对应数据库birthday   出生日期
     private String mianMao;             //对应数据库mianmao   政治面貌
     private String job;                 //对应数据库job    职务

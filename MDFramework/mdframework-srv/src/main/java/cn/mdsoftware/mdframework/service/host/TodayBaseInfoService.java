@@ -11,6 +11,7 @@ public interface TodayBaseInfoService {
     TodayBaseInfoDO findById(String gonghao);
 
     int up(TodayBaseInfoDO hb);
+    boolean exit(Map<String, Object> params);
 
-    int add(TodayBaseInfoDO htb);
+//    int add(TodayBaseInfoDO htb);
 }

@@ -65,4 +65,14 @@ public class WardServiceImpl implements WardService {
     public int del(String userName) {
         return wardMapper.del(userName);
     }
+
+    @Override
+    public List<WardDO> listWard() {
+        return wardMapper.listWard();
+    }
+
+    @Override
+    public List<WardDO> listZu() {
+        return wardMapper.listZu();
+    }
 }

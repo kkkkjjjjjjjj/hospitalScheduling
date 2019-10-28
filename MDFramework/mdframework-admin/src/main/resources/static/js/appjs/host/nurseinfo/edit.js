@@ -7,6 +7,7 @@ $().ready(function() {
 $.validator.setDefaults({
     submitHandler : function() {
         update();
+        xx();
     }
 });
 function update() {
@@ -22,7 +23,7 @@ function update() {
         success : function(data) {
             if (data.code == 0) {
                 parent.layer.msg(data.msg);
-                parent.reLoad();
+                parent.reLobd();
                 var index = parent.layer.getFrameIndex(window.name); // 获取窗口索引
                 parent.layer.close(index);
             } else {
@@ -46,7 +47,16 @@ function validateRule() {
             name : {
                 required : true,
             },
+            byDate:{
+                required : true,
+            },
             agree : "required"
         },
     })
 }
+
+function xx(){
+    parent.location.relobd();
+}
+
+

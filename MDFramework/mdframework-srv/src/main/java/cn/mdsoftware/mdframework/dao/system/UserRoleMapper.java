@@ -1,14 +1,11 @@
 package cn.mdsoftware.mdframework.dao.system;
 
-import java.util.List;
-
-import cn.mdsoftware.mdframework.bean.entity.system.UserRoleDO;
 import cn.mdsoftware.mdframework.bean.entity.system.UserRoleDO;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
-import cn.mdsoftware.mdframework.bean.entity.system.UserRoleDO;
+import java.util.List;
 
 public interface UserRoleMapper {
 	@Insert("INSERT INTO sys_user_role(id, user_id, role_id)" + "VALUES(#{id}, #{userId}, #{roleId})")
@@ -32,6 +29,7 @@ public interface UserRoleMapper {
 			+ " <foreach collection=\"list\" index=\"i\" open=\"(\" separator=\",\" close=\")\" item=\"item\"  >#{item}</foreach>"
 			+ "</script>")
 	int batchRemoveByUserId(List<Long> list);
+
 
 	@Select("select role_id from sys_user_role where user_id=#{userId}")
 	List<Long> listRoleId(Long userId);

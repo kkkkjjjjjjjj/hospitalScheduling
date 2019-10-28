@@ -24,7 +24,7 @@ public class WardController {
 
     @GetMapping("/ward")
     String find(Model model) {
-        List<WardDO> wardDOList=wardService.listName();
+        List<WardDO> wardDOList=wardService.listZu();
         model.addAttribute("wardDOList",wardDOList);
         return "host/ward/ward";
     }

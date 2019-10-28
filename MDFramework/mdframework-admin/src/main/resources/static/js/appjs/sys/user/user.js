@@ -171,7 +171,7 @@ function batchRemove() {
 			url : prefix + '/batchRemove',
 			success : function(r) {
 				if (r.code == 0) {
-					layer.msg(r.msg);
+						layer.msg(r.msg);
 					reLoad();
 				} else {
 					layer.msg(r.msg);

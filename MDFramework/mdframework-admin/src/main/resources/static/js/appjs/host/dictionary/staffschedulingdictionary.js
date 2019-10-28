@@ -67,10 +67,13 @@ function load() {
                         field : 'id',
                         align : 'center',
                         formatter : function(value, row, index) {
+                            var c = '<a class="btn btn-warning btn-sm " href="#" title="向病区添加"  mce_href="#" onclick="addInfo(\''
+                                + row.jc
+                                + '\')"><i class="fa fa-plus"></i></a> ';
                             var d = '<a class="btn btn-warning btn-sm " href="#" title="删除"  mce_href="#" onclick="remove(\''
                                 + row.xh
                                 + '\')"><i class="fa fa-remove"></i></a> ';
-                            return  d;
+                            return  c+d;
                         }
                     } ]
             });
@@ -80,7 +83,7 @@ function lobd() {
         .bootstrapTable(
             {
                 method : 'get', // 服务器数据的请求方式 get or post
-                url : prefix + "/list", // 服务器数据的加载地址
+                url : prefix + "/listInfo", // 服务器数据的加载地址
                 // showRefresh : true,
                 // showToggle : true,
                 // showColumns : true,
@@ -105,7 +108,7 @@ function lobd() {
                         // 说明：传入后台的参数包括offset开始索引，limit步长，sort排序列，order：desc或者,以及所有列的键值对
                         limit : params.limit,
                         offset : params.offset,
-                        name : $('#searchName').val()
+                        wardName : $('#chartType').val()
                     };
                 },
                 columns : [
@@ -122,23 +125,30 @@ function lobd() {
                         field : 'xx',
                     },
                     {
+                        title : '病区',
+                        field : 'wardName',
+                    },
+                    {
                         title : '操作',
                         field : 'id',
                         align : 'center',
                         formatter : function(value, row, index) {
-                            var d = '<a class="btn btn-warning btn-sm " href="#" title="删除"  mce_href="#" onclick="remove(\''
-                                + row.xh
-                                + '\')"><i class="fa fa-remove"></i></a> ';
+                            var d = '<a class="btn btn-warning btn-sm " href="#" title="删除"  mce_href="#" onclick="removeInfo(\''+ row.jc+ '\',\''+row.wardName+'\')"><i class="fa fa-remove"></i></a> ';
                             return  d;
                         }
                     } ]
             });
 }
+
 function reLoad() {
     $('#exampleTable').bootstrapTable('refresh');
 }
 
-function remove(xh/*对应你controller里需要的那个变量*/) {
+function relobd() {
+    $('#examTable').bootstrapTable('refresh');
+}
+
+function remove(jc/*对应你controller里需要的那个变量*/) {
     layer.confirm('确定要删除选中的记录？', {
         btn : [ '确定', '取消' ]
     }, function() {
@@ -146,7 +156,30 @@ function remove(xh/*对应你controller里需要的那个变量*/) {
             url : "/StaffSchedulingDictionary/del",
             type : "post",
             data : {
-                'xh' /*对应你需要的实体类里的字段*/: xh/*对应你需要的字段上边的field*/
+                'jc' /*对应你需要的实体类里的字段*/: jc/*对应你需要的字段上边的field*/
+            },
+            success : function(r) {
+                if (r.code == 0) {
+                    layer.msg(r.msg);
+                    reLoad();
+                } else {
+                    layer.msg(r.msg);
+                }
+            }
+        });
+    })
+}
+
+function removeInfo(jc,wardName/*对应你controller里需要的那个变量*/) {
+    layer.confirm('确定要删除选中的记录？', {
+        btn : [ '确定', '取消' ]
+    }, function() {
+        $.ajax({
+            url : "/StaffSchedulingDictionary/delInfo",
+            type : "post",
+            data : {/*对应你需要的实体类里的字段*/ /*对应你需要的字段上边的field*/
+               "jc":jc,
+                "wardName" : wardName,
             },
             success : function(r) {
                 if (r.code == 0) {
@@ -168,5 +201,17 @@ function add() {
         shadeClose: false, // 点击遮罩关闭层
         area: ['800px', '520px'],
         content: prefix + '/add' // iframe的url
+    });
+}
+
+
+function addInfo(jc) {
+    layer.open({
+        type: 2,
+        title: '增加',
+        maxmin: true,
+        shadeClose: false, // 点击遮罩关闭层
+        area: ['800px', '520px'],
+        content : prefix + '/addInfo/' + jc // iframe的url
     });
 }

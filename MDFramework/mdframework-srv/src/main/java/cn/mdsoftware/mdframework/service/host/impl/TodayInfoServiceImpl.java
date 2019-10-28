@@ -24,6 +24,13 @@ public class TodayInfoServiceImpl implements TodayInfoService {
     }
 
     @Override
+    public boolean exit(Map<String, Object> params) {
+        boolean exit;
+        exit = todayInfoMapper.findAll(params).size() > 0;
+        return exit;
+    }
+
+    @Override
     public TodayInfoDO findById(String id) {
         return todayInfoMapper.findById(id);
     }

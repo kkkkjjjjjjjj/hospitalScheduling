@@ -20,6 +20,71 @@ public class WardDO {
     private List<SchedulDO> schedulSat;
     private List<SchedulDO> schedulSun;
 
+
+    private List<WardDO> wardMon;
+    private List<WardDO> wardTues;
+    private List<WardDO> wardWed;
+    private List<WardDO> wardThu;
+    private List<WardDO> wardFri;
+    private List<WardDO> wardSat;
+    private List<WardDO> wardSun;
+
+    public List<WardDO> getWardMon() {
+        return wardMon;
+    }
+
+    public void setWardMon(List<WardDO> wardMon) {
+        this.wardMon = wardMon;
+    }
+
+    public List<WardDO> getWardTues() {
+        return wardTues;
+    }
+
+    public void setWardTues(List<WardDO> wardTues) {
+        this.wardTues = wardTues;
+    }
+
+    public List<WardDO> getWardWed() {
+        return wardWed;
+    }
+
+    public void setWardWed(List<WardDO> wardWed) {
+        this.wardWed = wardWed;
+    }
+
+    public List<WardDO> getWardThu() {
+        return wardThu;
+    }
+
+    public void setWardThu(List<WardDO> wardThu) {
+        this.wardThu = wardThu;
+    }
+
+    public List<WardDO> getWardFri() {
+        return wardFri;
+    }
+
+    public void setWardFri(List<WardDO> wardFri) {
+        this.wardFri = wardFri;
+    }
+
+    public List<WardDO> getWardSat() {
+        return wardSat;
+    }
+
+    public void setWardSat(List<WardDO> wardSat) {
+        this.wardSat = wardSat;
+    }
+
+    public List<WardDO> getWardSun() {
+        return wardSun;
+    }
+
+    public void setWardSun(List<WardDO> wardSun) {
+        this.wardSun = wardSun;
+    }
+
     @Override
     public String toString() {
         return "PaibanRenYuanDO{" +
@@ -30,6 +95,10 @@ public class WardDO {
                 ", wardName='" + wardName + '\'' +
                 ", zu='" + zu + '\'' +
                 '}';
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     public Integer getXh() {
@@ -135,4 +204,5 @@ public class WardDO {
     public void setSchedulSun(List<SchedulDO> schedulSun) {
         this.schedulSun = schedulSun;
     }
+
 }

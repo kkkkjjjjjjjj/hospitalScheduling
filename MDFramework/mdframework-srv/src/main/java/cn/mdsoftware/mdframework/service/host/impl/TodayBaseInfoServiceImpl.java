@@ -26,11 +26,15 @@ public class TodayBaseInfoServiceImpl implements TodayBaseInfoService {
 
     @Override
     public int up(TodayBaseInfoDO todayBaseInfoDO) {
-        return todayBaseInfoMapper.up(todayBaseInfoDO);
+        int r=todayBaseInfoMapper.up(todayBaseInfoDO);
+        return r;
     }
 
     @Override
-    public int add(TodayBaseInfoDO todayBaseInfoDO) {
-        return todayBaseInfoMapper.add(todayBaseInfoDO);
+    public boolean exit(Map<String, Object> params) {
+        boolean exit;
+        exit = todayBaseInfoMapper.findAll(params).size() > 0;
+        return exit;
     }
+
 }

@@ -23,4 +23,15 @@ public class SchedulServiceImpl implements SchedulService {
     public int count(Map<String, Object> map){
         return schedulMapper.count(map);
     }
+
+    @Override
+    public int update(SchedulDO schedulDO) {
+        int r=schedulMapper.update(schedulDO);
+        return r;
+    }
+
+    @Override
+    public SchedulDO ByName(String name) {
+        return schedulMapper.ByName(name);
+    }
 }
