@@ -106,15 +106,7 @@ public class SchedulingController {
     }
 
 
-    @GetMapping("/listF")
-    @ResponseBody
-    PageUtils listF(@RequestParam Map<String, Object> params) throws Exception{
-        Query query = new Query(params);
-        List<WardDO> wardList = wardService.list(query);
-        int total = wardService.count(query);
-        PageUtils pageUtil = new PageUtils(wardList, total);
-        return pageUtil;
-    }
+
 
     //添加
     @RequestMapping("/add")
@@ -227,6 +219,10 @@ public class SchedulingController {
         }
         return R.error();
     }
+
+
+
+
 
 
 

@@ -49,7 +49,16 @@ public interface WardMapper {
             )
     int count(Map<String,Object> map);
 
-    @Update("update HR_PAIBAN_RENYUAN set xh= #{xh},name=#{name},user_name=#{userName},zu=#{zu} where user_name=#{userName}")
+    @Update("update HR_PAIBAN_RENYUAN" +
+            "<set>" +
+            "<if test=\"xh != null\">`xh` = #{xh}, </if>" +
+            "<if test=\"userName != null\">`user_name` = #{userName}, </if>" +
+            "<if test=\"name != null\">`name` = #{name}, </if>" +
+            "<if test=\"wardCode != null\">`ward_code` = #{wardCode}, </if>" +
+            "<if test=\"wardName != null\">`ward_name` = #{wardName}, </if>" +
+            "<if test=\"zu != null\">`zu` = #{zu}, </if>" +
+            "</set>" +
+            " where user_name=#{userName}")
     int update(WardDO wardDO);
 
 

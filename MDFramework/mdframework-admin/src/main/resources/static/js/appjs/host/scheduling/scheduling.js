@@ -6,8 +6,7 @@ $(function() {
 });
 
 function load() {
-    $('#exampleTable')
-        .bootstrapTable(
+    $('#exampleTable').bootstrapTable(
             {
                 method : 'get', // 服务器数据的请求方式 get or post
                 url : prefix + "/list", // 服务器数据的加载地址
@@ -26,6 +25,7 @@ function load() {
                 // //发送到服务器的数据编码类型
                 pageSize : 5, // 如果设置了分页，每页数据条数
                 pageNumber : 1, // 如果设置了分布，首页页码
+                clickToSelect: true,
                 // search : true, // 是否显示搜索框
                 showColumns : false, // 是否显示内容下拉框（选择显示的列）
                 sidePagination : "server", // 设置在哪里进行分页，可选值为"client" 或者
@@ -41,28 +41,42 @@ function load() {
                 },
                 columns : [
                     {
+                        checkbox: true
+                    },
+                    {
                         title : '层级',
-                        field : 'userName'
+                        field : 'userName',
+                        valign: 'middle'
                     },
                     {
                         title : '姓名',
-                        field : 'name'
+                        field : 'name',
+                        valign: 'middle',
+                        editable: {
+                            type: 'text',
+                            title: '姓名',
+                            validate: function (v) {
+                                if (!v) return '不能为空';
+                            }
+                        }
                     },
                     {
                         title : '一',
                         field : 'schedulMon',
+
                         align : 'center',
                         formatter : function(value, row, index) {
+
                             return formatSchedul(value);
-                        }
-                    },
+                        },
+                        },
                     {
                         title : '二',
                         field : 'schedulTues',
                         align : 'center',
                         formatter : function(value, row, index) {
                             return formatSchedul(value);
-                        }
+                        },
                     },
                     {
                         title : '三',
@@ -102,25 +116,29 @@ function load() {
                         formatter : function(value, row, index) {
                             return formatSchedul(value);
                         }
-                    }
-                    ,
-                    {
-                        title : '操作',
-                        field : 'id',
-                        align : 'center',
-                        formatter : function(value, row, index) {
-                            var e = '<a class="btn btn-primary btn-sm " href="#" mce_href="#" title="编辑" onclick="edit(\''
-                                + row.name
-                                + '\')"><i class="fa fa-edit"></i></a> ';
-                            var d = '<a class="btn btn-warning btn-sm " href="#" title="删除"  mce_href="#" onclick="remove(\''
-                                + row.name
-                                + '\')"><i class="fa fa-remove"></i></a> ';
-                            return e + d;
+                    }],
+                onEditableSave: function (field, row, oldValue, $el) {//提交行内编辑数据
+                debugger;
+                    console.info(row);
+                    $.ajax({
+                        type: "post",
+                        url: prefix+"/update",
+                        /*data: row,*/
+                        data: {"name": row.name},
+                        dataType: 'JSON',
+                        success: function (data, status) {
+                            if (status == "success") {
+                                alert('成功');
+                            }
+                        },
+                        error: function () {
+                            alert('失败');
                         }
-                    }
+                    })
+                }
 
-                ]
             });
+
 }
 
 function lobd() {
@@ -172,7 +190,8 @@ function lobd() {
                         align : 'center',
                         formatter : function(value, row, index) {
                             return formatSchedul(value);
-                        }
+                        },
+
 
                     },
                     {
@@ -366,18 +385,6 @@ function formatListen(value) {
 
 
 
-function edit(name) {
-    layer.open({
-        type : 2,
-        title : '用户修改',
-        maxmin : true,
-        shadeClose : true, // 点击遮罩关闭层
-        area : [ '800px', '520px' ],
-        content : prefix + '/edit/' + name // iframe的url
-    });
-}
-
-
 function add() {
     layer.open({
         type: 2,
@@ -388,3 +395,6 @@ function add() {
         content: prefix + '/add' // iframe的url
     });
 }
+
+
+

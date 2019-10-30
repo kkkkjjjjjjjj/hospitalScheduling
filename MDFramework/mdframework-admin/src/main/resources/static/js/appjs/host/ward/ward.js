@@ -14,6 +14,7 @@ $(function() {
                 // showToggle : true,
                 // showColumns : true,
                 iconSize : 'outline',
+                clickToSelect: true,
                 // toolbar : '#exampleToolbar',
                 striped : true, // 设置为true会有隔行变色效果
                 dataType : "json", // 服务器返回的数据类型
@@ -22,7 +23,7 @@ $(function() {
                 // //设置为limit则会发送符合RESTFull格式的参数
                 singleSelect : false, // 设置为true将禁止多选
                 // contentType : "application/x-www-form-urlencoded",
-                // //发送到服务器的数据编码类型
+                // //发送到服务器的数据编码类型+
                 pageSize : 10, // 如果设置了分页，每页数据条数
                 pageNumber : 1, // 如果设置了分布，首页页码
                 // search : true, // 是否显示搜索框
@@ -59,7 +60,7 @@ $(function() {
                                 + '\')"><i class="fa fa-remove"></i></a> ';
                             return e + d;
                         }
-                    } ]
+                    } ],
             });
 }
 

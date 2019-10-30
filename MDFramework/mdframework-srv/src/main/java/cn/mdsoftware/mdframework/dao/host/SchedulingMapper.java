@@ -48,7 +48,7 @@ public interface SchedulingMapper {
     @Select("select * from HR_PAIBAN_DICT_HLB where jc=#{jc}")
     SchedulingDO findByJx(String jc);
 
-    @Select("select DISTINCT HR_PAIBAN_DICT_HLB.jc from HR_PAIBAN_DICT_HLB")
+    @Select("select DISTINCT HR_PAIBAN_DICT_HLB.xh,HR_PAIBAN_DICT_HLB.jc from HR_PAIBAN_DICT_HLB")
     List<SchedulingDO> listJc();
 
 
